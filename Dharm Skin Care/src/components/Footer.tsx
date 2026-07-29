@@ -14,12 +14,12 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand & Tagline */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0B4F6C] text-white flex items-center justify-center font-bold">
+              <div className="w-10 h-10 rounded-xl bg-[#4C59D8] text-white flex items-center justify-center font-bold shadow-md">
                 <Eye className="w-5 h-5" />
               </div>
               <div>
-                <div className="font-serif text-xl font-bold text-white tracking-tight">
-                  Dharm <span className="text-[#E8A33D]">Skin & Eye</span> Centre
+                <div className="font-sans text-xl font-bold text-white tracking-tight">
+                  Dharm <span className="text-[#4C59D8]">Skin & Eye</span> Centre
                 </div>
                 <div className="text-xs text-slate-400 font-medium">
                   {CLINIC_INFO.altName}
@@ -34,16 +34,16 @@ export const Footer: React.FC = () => {
             <div className="pt-2 flex items-center gap-3">
               <a
                 href={`tel:${CLINIC_INFO.phoneRaw}`}
-                className="px-4 py-2 rounded-xl bg-[#0B4F6C] text-white hover:bg-[#07384D] text-xs font-semibold flex items-center gap-2"
+                className="px-5 py-2.5 rounded-full bg-[#4C59D8] text-white hover:bg-[#3B47C5] text-xs font-bold flex items-center gap-2 transition-all"
               >
-                <Phone className="w-3.5 h-3.5 text-[#E8A33D]" />
+                <Phone className="w-3.5 h-3.5 text-white" />
                 <span>Call Clinic</span>
               </a>
               <a
                 href={CLINIC_INFO.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-semibold flex items-center gap-2"
+                className="px-5 py-2.5 rounded-full bg-emerald-600 text-white hover:bg-emerald-700 text-xs font-bold flex items-center gap-2 transition-all"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>WhatsApp</span>
@@ -53,44 +53,45 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Quick Links */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider font-serif">
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
               Quick Navigation
             </h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#hero" className="hover:text-[#E8A33D] transition-colors">Home Overview</a></li>
-              <li><a href="#eye-care" className="hover:text-[#E8A33D] transition-colors">Eye Care & Perimetry</a></li>
-              <li><a href="#skin-care" className="hover:text-[#E8A33D] transition-colors">Skin & Aesthetic Clinic</a></li>
-              <li><a href="#doctor" className="hover:text-[#E8A33D] transition-colors">Dr. Chandan Singh Kushwah</a></li>
-              <li><a href="#technology" className="hover:text-[#E8A33D] transition-colors">First in Mathura Tech</a></li>
-              <li><a href="#location" className="hover:text-[#E8A33D] transition-colors">Timings & Google Maps</a></li>
+            <ul className="space-y-2 text-sm font-medium">
+              <li><a href="#hero" className="hover:text-[#4C59D8] transition-colors">Home Overview</a></li>
+              <li><a href="#about-us" className="hover:text-[#4C59D8] transition-colors">About Us</a></li>
+              <li><a href="#eye-care" className="hover:text-[#4C59D8] transition-colors">Eye Care & Perimetry</a></li>
+              <li><a href="#skin-care" className="hover:text-[#4C59D8] transition-colors">Skin & Aesthetic Clinic</a></li>
+              <li><a href="#doctor" className="hover:text-[#4C59D8] transition-colors">Specialist Doctors</a></li>
+              <li><a href="#technology" className="hover:text-[#4C59D8] transition-colors">First in Mathura Tech</a></li>
+              <li><a href="#location" className="hover:text-[#4C59D8] transition-colors">Timings & Google Maps</a></li>
             </ul>
           </div>
 
           {/* Col 3: Contact & Address */}
           <div className="lg:col-span-4 space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider font-serif">
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
               Clinic Contact & Hours
             </h4>
 
-            <div className="space-y-2.5 text-xs text-slate-300">
+            <div className="space-y-2.5 text-xs text-slate-300 font-medium">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#E8A33D] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#F59E0B] shrink-0 mt-0.5" />
                 <span>{CLINIC_INFO.address}</span>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#0B4F6C] shrink-0" />
+                <Phone className="w-4 h-4 text-[#4C59D8] shrink-0" />
                 <a href={`tel:${CLINIC_INFO.phoneRaw}`} className="hover:underline font-mono text-sm font-bold text-white">
                   {CLINIC_INFO.phone}
                 </a>
               </div>
 
               <div className="flex items-start gap-2.5 pt-1">
-                <Clock className="w-4 h-4 text-[#E8A33D] shrink-0 mt-0.5" />
+                <Clock className="w-4 h-4 text-[#F59E0B] shrink-0 mt-0.5" />
                 <div>
-                  <div>Mon-Wed, Fri-Sat: 9:00 AM – 6:00 PM</div>
+                  <div>Mon-Sat: 9:00 AM – 6:00 PM</div>
                   <div>Sunday: 8:00 AM – 12:00 PM</div>
-                  <div className="text-amber-400 font-semibold mt-0.5">Thursday: Closed</div>
+                  <div className="text-amber-400 font-bold mt-0.5">Thursday: Closed</div>
                 </div>
               </div>
             </div>
@@ -98,14 +99,14 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom copyright line */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
           <div>
             © 2026 Dharm Skin & Eye Centre. All rights reserved. | Mathura, Uttar Pradesh
           </div>
 
           <button
             onClick={scrollToTop}
-            className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 transition-colors"
+            className="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 transition-colors cursor-pointer"
             aria-label="Back to top"
           >
             <span>Back to Top</span>
@@ -116,3 +117,4 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+

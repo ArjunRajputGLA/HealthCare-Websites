@@ -15,7 +15,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-fadeIn">
       <div className="bg-white rounded-3xl max-w-2xl w-full border border-slate-200 shadow-2xl overflow-hidden relative max-h-[90vh] flex flex-col">
         {/* Modal Header */}
-        <div className="p-6 sm:p-8 bg-gradient-to-r from-[#0B4F6C] to-[#07384D] text-white relative">
+        <div className="p-6 sm:p-8 bg-[#4C59D8] text-white relative">
           <button
             onClick={onClose}
             className="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
@@ -25,16 +25,16 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
           </button>
 
           {service.isFirstInMathura && (
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E8A33D] text-slate-950 text-xs font-bold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F59E0B] text-slate-950 text-xs font-bold uppercase tracking-wider mb-3">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Mathura's First Machine</span>
             </div>
           )}
 
-          <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
             {service.name}
           </h3>
-          <p className="text-slate-200 text-sm mt-1">
+          <p className="text-white/80 text-sm mt-1 font-medium">
             Dharm Skin & Eye Centre Clinical Overview
           </p>
         </div>
@@ -45,7 +45,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
             <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
               Procedure Description
             </h4>
-            <p className="text-slate-700 text-base leading-relaxed">
+            <p className="text-slate-700 text-base leading-relaxed font-medium">
               {service.fullDesc}
             </p>
           </div>
@@ -57,15 +57,15 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
             </h4>
             <div className="space-y-2.5">
               {service.benefits.map((benefit, i) => (
-                <div key={i} className="flex items-start gap-3 text-slate-800 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-[#0B4F6C] shrink-0 mt-0.5" />
+                <div key={i} className="flex items-start gap-3 text-slate-800 text-sm font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-[#4C59D8] shrink-0 mt-0.5" />
                   <span>{benefit}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#F0F7FA] border border-[#0B4F6C]/20 text-xs text-[#0B4F6C]">
+          <div className="p-4 rounded-2xl bg-[#EEF1FC] border border-[#DFE5FA] text-xs font-semibold text-[#4C59D8]">
             <strong>Diagnostic Note:</strong> Early evaluation ensures maximum visual protection. Consult our specialists opposite Tanishq Jewellers, Mathura.
           </div>
         </div>
@@ -74,9 +74,9 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
         <div className="p-4 sm:p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
           <a
             href={`tel:${CLINIC_INFO.phoneRaw}`}
-            className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-200 text-xs font-semibold flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-full border border-slate-300 text-slate-700 hover:bg-slate-200 text-xs font-bold flex items-center justify-center gap-2"
           >
-            <Phone className="w-4 h-4 text-[#0B4F6C]" />
+            <Phone className="w-4 h-4 text-[#4C59D8]" />
             <span>Call {CLINIC_INFO.phone}</span>
           </a>
 
@@ -85,9 +85,9 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
               onClose();
               onBook(service.name);
             }}
-            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#E8A33D] hover:bg-[#D48E27] text-slate-900 font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
-            <Calendar className="w-4 h-4 text-slate-900" />
+            <Calendar className="w-4 h-4 text-white" />
             <span>Book Appointment for {service.name}</span>
           </button>
         </div>
@@ -95,3 +95,4 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
     </div>
   );
 };
+

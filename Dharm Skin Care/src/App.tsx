@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { AboutUsSection } from './components/AboutUsSection';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { EyeCareServices } from './components/EyeCareServices';
 import { SkinCareServices } from './components/SkinCareServices';
@@ -26,7 +27,7 @@ export function App() {
     }
     const lenis = getLenis();
     if (lenis) {
-      lenis.scrollTo('#contact', { offset: -100 });
+      lenis.scrollTo('#contact', { offset: -110 });
     } else {
       const element = document.getElementById('contact');
       if (element) {
@@ -36,12 +37,15 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] text-slate-800 font-sans selection:bg-[#0B4F6C] selection:text-white">
+    <div className="min-h-screen bg-[#FAFAF8] text-slate-900 font-sans selection:bg-[#4C59D8] selection:text-white">
       {/* Sticky Navbar */}
       <Navbar onOpenAppointment={() => handleOpenAppointmentModal()} />
 
       {/* Hero Section */}
       <Hero onOpenAppointment={() => handleOpenAppointmentModal()} />
+
+      {/* About Us Section - Inspired by Design Inspiration Image */}
+      <AboutUsSection />
 
       {/* Why Choose Us / Trust Features */}
       <WhyChooseUs />
@@ -91,3 +95,4 @@ export function App() {
 }
 
 export default App;
+

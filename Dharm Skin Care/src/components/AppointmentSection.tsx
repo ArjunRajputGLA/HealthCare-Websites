@@ -33,58 +33,58 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-[#F0F7FA] via-white to-[#F0F7FA] border-t border-slate-200">
+    <section id="contact" className="py-20 bg-[#EFF2FC] border-t border-[#DFE5FA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: CTA Pitch & Direct Call */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B4F6C]/10 text-[#0B4F6C] text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-[#4C59D8] text-xs font-bold uppercase tracking-wider shadow-xs">
               <Calendar className="w-4 h-4" />
               <span>Easy Appointment Request</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
               Ready to Priority Consult with Our Specialists?
             </h2>
 
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
               Book an appointment for perimetry field testing, cataract surgery evaluation, or skin care consultations. Conveniently reach us by phone or WhatsApp.
             </p>
 
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-md space-y-4">
+            <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-md space-y-4">
               <div className="text-xs font-bold uppercase text-slate-500 tracking-wider">
                 Direct Emergency / OPD Line
               </div>
 
               <a
                 href={`tel:${CLINIC_INFO.phoneRaw}`}
-                className="flex items-center gap-3 p-4 rounded-xl bg-[#0B4F6C] text-white hover:bg-[#07384D] transition-all shadow-md group"
+                className="flex items-center gap-3 p-4 rounded-2xl bg-[#4C59D8] text-white hover:bg-[#3B47C5] transition-all shadow-md group"
               >
-                <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-[#E8A33D] group-hover:scale-105 transition-transform">
+                <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-200 font-medium">Tap to Call Immediately</div>
+                  <div className="text-xs text-white/80 font-medium">Tap to Call Immediately</div>
                   <div className="text-xl font-bold font-mono tracking-tight">{CLINIC_INFO.phone}</div>
                 </div>
               </a>
 
               <button
                 onClick={handleWhatsAppBooking}
-                className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm flex items-center justify-center gap-2.5 transition-all shadow-md"
+                className="w-full py-3.5 px-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2.5 transition-all shadow-md"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
                 <span>Book via WhatsApp Message</span>
               </button>
             </div>
 
-            <div className="flex items-center gap-4 text-xs text-slate-500 pt-2">
+            <div className="flex items-center gap-4 text-xs text-slate-500 pt-2 font-medium">
               <div className="flex items-center gap-1.5">
-                <Shield className="w-4 h-4 text-[#0B4F6C]" />
+                <Shield className="w-4 h-4 text-[#4C59D8]" />
                 <span>No Advance Payment Required</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-[#0B4F6C]" />
+                <Clock className="w-4 h-4 text-[#4C59D8]" />
                 <span>Fast OPD Confirmation</span>
               </div>
             </div>
@@ -97,7 +97,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-slate-900">
+                <h3 className="text-2xl font-bold text-slate-900">
                   Appointment Request Received!
                 </h3>
                 <p className="text-slate-600 text-base max-w-md mx-auto">
@@ -106,14 +106,14 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                   <button
                     onClick={handleWhatsAppBooking}
-                    className="px-6 py-3 rounded-xl bg-emerald-600 text-white font-semibold text-sm flex items-center gap-2 shadow-md"
+                    className="px-6 py-3 rounded-full bg-emerald-600 text-white font-bold text-sm flex items-center gap-2 shadow-md"
                   >
                     <MessageSquare className="w-4 h-4" />
                     <span>Send details on WhatsApp</span>
                   </button>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm"
+                    className="px-5 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm"
                   >
                     Book Another Request
                   </button>
@@ -122,10 +122,10 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="border-b border-slate-100 pb-4 mb-2">
-                  <h3 className="text-2xl font-serif font-bold text-slate-900">
+                  <h3 className="text-2xl font-bold text-slate-900">
                     Request an Appointment
                   </h3>
-                  <p className="text-slate-500 text-sm">
+                  <p className="text-slate-500 text-sm font-medium">
                     Fill in your details below for quick OPD confirmation.
                   </p>
                 </div>
@@ -141,7 +141,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                       placeholder="e.g. Ramesh Kumar"
                       value={formData.patientName}
                       onChange={(e) => setFormData({ ...formData, patientName: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0B4F6C] focus:ring-2 focus:ring-[#0B4F6C]/20 outline-none text-slate-900 text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm"
                     />
                   </div>
 
@@ -155,7 +155,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0B4F6C] focus:ring-2 focus:ring-[#0B4F6C]/20 outline-none text-slate-900 text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm"
                     />
                   </div>
                 </div>
@@ -167,7 +167,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0B4F6C] focus:ring-2 focus:ring-[#0B4F6C]/20 outline-none text-slate-900 text-sm bg-white"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm bg-white"
                   >
                     <optgroup label="Eye Care Services">
                       {EYE_CARE_SERVICES.map((s) => (
@@ -195,7 +195,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                       type="date"
                       value={formData.preferredDate}
                       onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0B4F6C] focus:ring-2 focus:ring-[#0B4F6C]/20 outline-none text-slate-900 text-sm bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm bg-white"
                     />
                   </div>
 
@@ -206,7 +206,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                     <select
                       value={formData.preferredTime}
                       onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0B4F6C] focus:ring-2 focus:ring-[#0B4F6C]/20 outline-none text-slate-900 text-sm bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm bg-white"
                     >
                       <option>Morning (9:00 AM - 1:00 PM)</option>
                       <option>Afternoon (1:00 PM - 4:00 PM)</option>
@@ -224,23 +224,23 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                     placeholder="Describe any specific symptoms or requests..."
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0B4F6C] focus:ring-2 focus:ring-[#0B4F6C]/20 outline-none text-slate-900 text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm"
                   />
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row gap-3">
                   <button
                     type="submit"
-                    className="flex-1 py-4 px-6 rounded-xl bg-[#0B4F6C] hover:bg-[#07384D] text-white font-semibold text-base shadow-lg transition-all flex items-center justify-center gap-2"
+                    className="flex-1 py-4 px-6 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-base shadow-lg shadow-[#4C59D8]/30 transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <Send className="w-4 h-4 text-[#E8A33D]" />
+                    <Send className="w-4 h-4 text-white" />
                     <span>Submit Appointment Request</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={handleWhatsAppBooking}
-                    className="py-4 px-5 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200 font-semibold text-sm hover:bg-emerald-100 flex items-center justify-center gap-2"
+                    className="py-4 px-6 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold text-sm hover:bg-emerald-100 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <MessageSquare className="w-4 h-4 text-emerald-600" />
                     <span>WhatsApp Booking</span>
@@ -254,3 +254,4 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
     </section>
   );
 };
+
