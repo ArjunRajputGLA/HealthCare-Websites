@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown, Search, Sparkles } from 'lucide-react';
+import { CLINIC_INFO } from '../data/clinicData';
 
 interface FaqItem {
   id: string;
@@ -48,7 +49,7 @@ export const FaqSection: React.FC = () => {
       id: 'faq-6',
       category: 'general',
       question: 'Where is Dharm Skin & Eye Centre located in Mathura?',
-      answer: 'Our clinic is located at Shankar Vihar, Krishna Nagar, Mathura, Uttar Pradesh 281004 (Opposite Tanishq Jewellers / nearby Krishna Nagar main road).'
+      answer: `Our clinic is located at ${CLINIC_INFO.address}.`
     },
     {
       id: 'faq-7',

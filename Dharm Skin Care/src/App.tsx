@@ -14,10 +14,12 @@ import { FaqSection } from './components/FaqSection';
 import { Testimonials } from './components/Testimonials';
 import { ClinicInfoAndMap } from './components/ClinicInfoAndMap';
 import { AppointmentSection, type BookingDetailsSubmitted } from './components/AppointmentSection';
-import { StickyEmergencyBar } from './components/StickyEmergencyBar';
 import { BookingConfirmationModal, type BookingDetails } from './components/BookingConfirmationModal';
 import { Footer } from './components/Footer';
 import { ServiceModal } from './components/ServiceModal';
+import { QuickActionRow } from './components/QuickActionRow';
+import { RightSideFloatingDock } from './components/RightSideFloatingDock';
+import { RequestCallbackModal } from './components/RequestCallbackModal';
 import { useSmoothScroll, getLenis } from './hooks/useSmoothScroll';
 import type { ServiceItem } from './data/clinicData';
 
@@ -54,6 +56,9 @@ export function App() {
 
       {/* Hero Section */}
       <Hero onOpenAppointment={() => handleOpenAppointmentModal()} />
+
+      {/* Gleneagles-style 4-Card Quick Action Grid */}
+      <QuickActionRow onOpenAppointment={() => handleOpenAppointmentModal()} />
 
       {/* About Us Section */}
       <AboutUsSection />
@@ -118,8 +123,11 @@ export function App() {
       {/* Footer */}
       <Footer />
 
-      {/* Sticky Smart Emergency & Live OPD Dock */}
-      <StickyEmergencyBar onOpenAppointment={() => handleOpenAppointmentModal()} />
+      {/* Apollo-Style Right-Side Hover Expanding Action Dock */}
+      <RightSideFloatingDock onOpenAppointment={() => handleOpenAppointmentModal()} />
+
+      {/* Left-Side Sticky Vertical Request Callback Red Tab */}
+      <RequestCallbackModal />
 
       {/* Interactive Service Detail Modal */}
       <ServiceModal

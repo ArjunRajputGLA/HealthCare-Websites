@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Calendar, Menu, X, Eye, Clock, Mail, Globe, Share2 } from 'lucide-react';
+import { Phone, Calendar, Menu, X, Eye, Clock } from 'lucide-react';
 import { CLINIC_INFO } from '../data/clinicData';
 import { getLenis } from '../hooks/useSmoothScroll';
 
@@ -83,35 +83,40 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
       }`}
     >
-      {/* Top Utility Header Bar - Deep Emerald Teal */}
-      <div className="bg-[#0F766E] text-white text-xs py-2 px-4 sm:px-6 lg:px-8 border-b border-white/10 hidden md:block">
+      {/* Top Utility Header Bar - Gleneagles Inspired */}
+      <div className="bg-slate-900 text-white text-xs py-2 px-4 sm:px-6 lg:px-8 border-b border-slate-800 hidden md:block">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
+          {/* Left: Location & Working Hours */}
           <div className="flex items-center space-x-6">
-            <div className="flex items-center gap-1.5 font-medium opacity-90">
-              <Clock className="w-3.5 h-3.5 text-white/90" />
-              <span>Working Hour: 09:00am to 06:00pm</span>
+            <div className="flex items-center gap-1.5 font-semibold text-emerald-400">
+              <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>📍 Shankar Vihar, Mathura (Opp. Tanishq)</span>
             </div>
-            <div className="flex items-center gap-1.5 font-medium opacity-90">
-              <Mail className="w-3.5 h-3.5 text-white/90" />
-              <span>Email: info@dharmskineye.com</span>
+            <div className="flex items-center gap-1.5 font-medium text-slate-300">
+              <Clock className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Mon-Sat: 9am-6pm | Sun: 8am-12pm</span>
             </div>
           </div>
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center gap-3">
-              <a href="#" aria-label="Share" className="hover:opacity-75 transition-opacity">
-                <Share2 className="w-3.5 h-3.5" />
-              </a>
-              <a href="#" aria-label="Website" className="hover:opacity-75 transition-opacity">
-                <Globe className="w-3.5 h-3.5" />
-              </a>
+
+          {/* Right: Secondary Links & Emergency Hotline */}
+          <div className="flex items-center space-x-5">
+            <div className="flex items-center space-x-4 text-slate-300 font-medium">
+              <a href="#about-us" onClick={(e) => handleNavClick(e, '#about-us')} className="hover:text-white transition-colors">About Us</a>
+              <a href="#screener" onClick={(e) => handleNavClick(e, '#screener')} className="hover:text-white transition-colors">Patient Screener</a>
+              <a href="#faq" onClick={(e) => handleNavClick(e, '#faq')} className="hover:text-white transition-colors">FAQs</a>
+              <a href="#location" onClick={(e) => handleNavClick(e, '#location')} className="hover:text-white transition-colors">Contact</a>
             </div>
-            <div className="h-3 w-px bg-white/20" />
-            <div className="flex items-center gap-1.5 font-semibold">
-              <span>Contact:</span>
-              <a href={`tel:${CLINIC_INFO.phoneRaw}`} className="hover:underline">
-                {CLINIC_INFO.phone}
-              </a>
-            </div>
+
+            <div className="h-3 w-px bg-slate-700" />
+
+            {/* Helpline / Emergency Button */}
+            <a
+              href={`tel:${CLINIC_INFO.phoneRaw}`}
+              className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-600 hover:bg-red-500 text-white font-bold text-[11px] shadow-sm transition-all animate-pulse"
+            >
+              <Phone className="w-3 h-3 text-white" />
+              <span>EMERGENCY: {CLINIC_INFO.phone}</span>
+            </a>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Calendar, Stethoscope, Star, Users } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Calendar, Stethoscope, Star, Users, Search } from 'lucide-react';
 import { getLenis } from '../hooks/useSmoothScroll';
 import { animate, createTimeline, stagger } from 'animejs';
 import { animateCounter, animateFloatingLoop } from '../utils/animeEffects';
@@ -9,12 +9,39 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
+  const [searchTerm, setSearchTerm] = useState('');
   const countRef = useRef<HTMLDivElement>(null);
   const yearsRef = useRef<HTMLDivElement>(null);
   const badge1Ref = useRef<HTMLDivElement>(null);
   const badge2Ref = useRef<HTMLDivElement>(null);
   const circle1Ref = useRef<HTMLDivElement>(null);
   const circle2Ref = useRef<HTMLDivElement>(null);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!searchTerm.trim()) return;
+    const query = searchTerm.toLowerCase();
+
+    let target = '#eye-care';
+    if (query.includes('skin') || query.includes('hair') || query.includes('derma') || query.includes('acne')) {
+      target = '#skin-care';
+    } else if (query.includes('doctor') || query.includes('chandan') || query.includes('arpita')) {
+      target = '#doctor';
+    } else if (query.includes('perimetry') || query.includes('glaucoma') || query.includes('tech') || query.includes('visual')) {
+      target = '#technology';
+    } else if (query.includes('tour') || query.includes('360') || query.includes('map')) {
+      target = '#virtual-tour';
+    } else if (query.includes('faq') || query.includes('question')) {
+      target = '#faq';
+    }
+
+    const lenis = getLenis();
+    if (lenis) {
+      lenis.scrollTo(target, { offset: -110 });
+    } else {
+      document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     // 1. Counter Animations
@@ -208,6 +235,55 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
           </div>
 
         </div>
+
+        {/* Gleneagles-style Floating Search Bar */}
+        <div className="hero-anime-item mt-10 pt-6 border-t border-slate-200/80 relative z-20">
+          <form onSubmit={handleSearch} className="max-w-3xl mx-auto relative">
+            <div className="relative flex items-center bg-white rounded-2xl shadow-lg border border-slate-200/90 p-1.5 focus-within:ring-2 focus-within:ring-[#0F766E]/30 focus-within:border-[#0F766E] transition-all">
+              <div className="pl-4 pr-2 text-slate-400">
+                <Search className="w-5 h-5 text-[#0F766E]" />
+              </div>
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search for Doctors, Specialities, Eye &amp; Skin Care..."
+                className="w-full py-2.5 pr-4 text-sm sm:text-base font-medium text-slate-800 placeholder-slate-400 outline-hidden bg-transparent"
+              />
+              <button
+                type="submit"
+                className="px-6 py-2.5 rounded-xl bg-[#0F766E] hover:bg-[#0D9488] text-white font-bold text-sm shadow-md transition-colors cursor-pointer shrink-0 flex items-center gap-1.5"
+              >
+                <span>Search</span>
+              </button>
+            </div>
+
+            {/* Quick Suggestion Chips */}
+            <div className="flex flex-wrap items-center gap-2 mt-3 justify-center text-xs font-semibold text-slate-500">
+              <span className="text-slate-400">Popular:</span>
+              {['1st Perimetry Test', 'Cataract Lenses', 'Skin Rejuvenation', 'Dr. Chandan'].map((chip) => (
+                <button
+                  key={chip}
+                  type="button"
+                  onClick={() => {
+                    setSearchTerm(chip);
+                    let target = '#eye-care';
+                    if (chip.includes('Perimetry')) target = '#technology';
+                    if (chip.includes('Skin')) target = '#skin-care';
+                    if (chip.includes('Chandan')) target = '#doctor';
+                    const lenis = getLenis();
+                    if (lenis) lenis.scrollTo(target, { offset: -110 });
+                    else document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-3 py-1 rounded-full bg-white/80 hover:bg-white text-slate-700 hover:text-[#0F766E] border border-slate-200 shadow-2xs transition-all cursor-pointer"
+                >
+                  {chip}
+                </button>
+              ))}
+            </div>
+          </form>
+        </div>
+
       </div>
     </section>
   );
