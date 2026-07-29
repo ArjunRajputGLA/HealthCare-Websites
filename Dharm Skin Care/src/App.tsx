@@ -37,7 +37,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] text-slate-900 font-sans selection:bg-[#4C59D8] selection:text-white">
+    <div className="min-h-screen bg-[#FAFAF8] text-slate-900 font-sans selection:bg-[#DFE5FA] selection:text-[#3B47C5]">
       {/* Sticky Navbar */}
       <Navbar onOpenAppointment={() => handleOpenAppointmentModal()} />
 

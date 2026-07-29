@@ -41,14 +41,15 @@
 
 /* Theme Text Selection Highlight */
 ::selection {
-  background-color: #4C59D8;
-  color: #FFFFFF;
+  background-color: #DFE5FA !important;
+  color: #3B47C5 !important;
 }
 
 ::-moz-selection {
-  background-color: #4C59D8;
-  color: #FFFFFF;
+  background-color: #DFE5FA !important;
+  color: #3B47C5 !important;
 }
+
 
 
 /* Custom smooth scrollbar */
