@@ -13,12 +13,12 @@ export const ClinicInfoAndMap: React.FC = () => {
     <section id="location" className="py-20 bg-white border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF1FC] text-[#4C59D8] text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F0FDFA] text-[#0F766E] text-xs font-bold uppercase tracking-wider mb-3">
             <MapPin className="w-4 h-4" />
             <span>Visit Our Mathura Clinic</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Clinic Hours & Location
+            Clinic Hours &amp; Location
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-3 font-medium">
             Conveniently situated in Shankar Vihar, Krishna Nagar, Mathura. Walk-ins and appointment bookings welcome.
@@ -52,14 +52,14 @@ export const ClinicInfoAndMap: React.FC = () => {
             </div>
 
             {/* Weekly Schedule Card */}
-            <div className="p-6 rounded-2xl bg-[#FAFAF8] border border-slate-200 shadow-sm">
+            <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200 shadow-sm">
               <div className="flex items-center gap-3 mb-5 pb-3 border-b border-slate-200">
-                <div className="w-10 h-10 rounded-2xl bg-[#4C59D8] text-white flex items-center justify-center shadow-md">
+                <div className="w-10 h-10 rounded-2xl bg-[#0F766E] text-white flex items-center justify-center shadow-md">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 text-lg">Weekly OPD Timings</h3>
-                  <p className="text-xs text-slate-500 font-medium">Dharm Skin & Eye Centre Schedule</p>
+                  <p className="text-xs text-slate-500 font-medium">Dharm Skin &amp; Eye Centre Schedule</p>
                 </div>
               </div>
 
@@ -71,14 +71,14 @@ export const ClinicInfoAndMap: React.FC = () => {
                       key={h.day}
                       className={`flex items-center justify-between p-2.5 rounded-xl text-sm transition-colors ${
                         isCurrentDay
-                          ? 'bg-[#EEF1FC] font-bold text-[#4C59D8] border border-[#DFE5FA]'
+                          ? 'bg-[#F0FDFA] font-bold text-[#0F766E] border border-[#CCFBF1]'
                           : 'text-slate-700 hover:bg-slate-100/70 font-medium'
                       }`}
                     >
                       <div className="flex items-center gap-2">
                         <span>{h.day}</span>
                         {isCurrentDay && (
-                          <span className="text-[10px] bg-[#4C59D8] text-white px-2 py-0.5 rounded-full font-bold">
+                          <span className="text-[10px] bg-[#0F766E] text-white px-2 py-0.5 rounded-full font-bold">
                             Today
                           </span>
                         )}
@@ -110,12 +110,12 @@ export const ClinicInfoAndMap: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-3 pt-3 border-t border-slate-100">
-                <Phone className="w-5 h-5 text-[#4C59D8] shrink-0 mt-1" />
+                <Phone className="w-5 h-5 text-[#0F766E] shrink-0 mt-1" />
                 <div>
                   <div className="text-xs font-bold text-slate-500 uppercase">Phone (Tap to call)</div>
                   <a
                     href={`tel:${CLINIC_INFO.phoneRaw}`}
-                    className="text-base font-bold text-[#4C59D8] hover:underline"
+                    className="text-base font-bold text-[#0F766E] hover:underline"
                   >
                     {CLINIC_INFO.phone}
                   </a>
@@ -126,7 +126,7 @@ export const ClinicInfoAndMap: React.FC = () => {
                 href={CLINIC_INFO.mapsDirectionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md"
+                className="w-full py-3.5 rounded-full bg-[#0F766E] hover:bg-[#0D9488] text-white font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md"
               >
                 <span>Open Directions in Google Maps</span>
                 <ExternalLink className="w-4 h-4" />
@@ -149,8 +149,8 @@ export const ClinicInfoAndMap: React.FC = () => {
             />
             {/* Map Overlay Badge */}
             <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-slate-200 text-xs font-bold text-slate-900 flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-[#4C59D8] animate-ping" />
-              <span>Shankar Vihar, Krishna Nagar, Mathura</span>
+              <div className="w-3 h-3 rounded-full bg-[#0F766E] animate-ping" />
+              <span>Opposite Tanishq Jewellers, Shankar Vihar, Mathura</span>
             </div>
           </div>
         </div>

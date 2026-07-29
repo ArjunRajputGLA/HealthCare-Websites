@@ -22,7 +22,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookDoctor }) =>
     <section id="doctor" className="py-20 bg-white border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF1FC] text-[#4C59D8] text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F0FDFA] text-[#0F766E] text-xs font-bold uppercase tracking-wider mb-3">
             <UserCheck className="w-4 h-4" />
             <span>Experienced Medical Team</span>
           </div>
@@ -42,9 +42,9 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookDoctor }) =>
             <div className="p-6 sm:p-8 space-y-6">
               {/* Header Badge */}
               <div className="flex items-center justify-between gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EEF1FC] text-[#4C59D8] text-xs font-bold uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F0FDFA] text-[#0F766E] text-xs font-bold uppercase tracking-wider">
                   <Eye className="w-3.5 h-3.5" />
-                  <span>Ophthalmology & Phaco Surgery</span>
+                  <span>Ophthalmology &amp; Phaco Surgery</span>
                 </div>
                 <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
                   Eye Specialist
@@ -65,7 +65,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookDoctor }) =>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                     {DOCTOR_ARPITA.name}
                   </h3>
-                  <div className="text-[#4C59D8] font-bold text-base sm:text-lg">
+                  <div className="text-[#0F766E] font-bold text-base sm:text-lg">
                     {DOCTOR_ARPITA.qualifications}
                   </div>
                   <div className="text-slate-700 font-semibold text-sm">
@@ -78,30 +78,30 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookDoctor }) =>
               </div>
 
               {/* Specialization Highlights */}
-              <div className="p-4 rounded-2xl bg-[#FAFAF8] border border-slate-100 space-y-2 text-xs">
+              <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-100 space-y-2 text-xs">
                 <div className="font-bold text-slate-900 uppercase tracking-wider mb-1">
-                  Clinical Focus & Key Expertise
+                  Clinical Focus &amp; Key Expertise
                 </div>
                 <div className="flex items-center gap-2 text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#4C59D8] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
                   <span>Phaco Cataract Surgery with Imported Lens Options</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#4C59D8] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
                   <span>Automated Computerized Perimetry Test (First in Mathura)</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#4C59D8] shrink-0" />
-                  <span>YAG Laser for Post-Cataract PCO & Glaucoma Care</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
+                  <span>YAG Laser for Post-Cataract PCO &amp; Glaucoma Care</span>
                 </div>
               </div>
             </div>
 
             {/* Action Button */}
-            <div className="p-6 bg-[#FAFAF8] border-t border-slate-100">
+            <div className="p-6 bg-[#F8FAFC] border-t border-slate-100">
               <button
                 onClick={() => onBookDoctor(DOCTOR_ARPITA.name)}
-                className="w-full py-3.5 px-4 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-4 rounded-full bg-[#0F766E] hover:bg-[#0D9488] text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
               >
                 <Eye className="w-4 h-4 text-white" />
                 <span>Consult Dr. Arpita Gupta (Eye Specialist)</span>
@@ -116,7 +116,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookDoctor }) =>
               <div className="flex items-center justify-between gap-2">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FEF3C7] text-amber-900 text-xs font-bold uppercase tracking-wider">
                   <Stethoscope className="w-3.5 h-3.5 text-[#F59E0B]" />
-                  <span>Dermatology & VD Specialist</span>
+                  <span>Dermatology &amp; VD Specialist</span>
                 </div>
                 <span className="text-xs font-bold px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200">
                   13+ Yrs Experience
@@ -137,7 +137,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookDoctor }) =>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                     {DOCTOR_CHANDAN.name}
                   </h3>
-                  <div className="text-[#4C59D8] font-bold text-base sm:text-lg">
+                  <div className="text-[#0F766E] font-bold text-base sm:text-lg">
                     {DOCTOR_CHANDAN.qualifications}
                   </div>
                   <div className="text-slate-700 font-semibold text-sm">
@@ -150,30 +150,30 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookDoctor }) =>
               </div>
 
               {/* Specialization Highlights */}
-              <div className="p-4 rounded-2xl bg-[#FAFAF8] border border-slate-100 space-y-2 text-xs">
+              <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-100 space-y-2 text-xs">
                 <div className="font-bold text-slate-900 uppercase tracking-wider mb-1">
-                  All Skin & Allergy Diseases Treated
+                  All Skin &amp; Allergy Diseases Treated
                 </div>
                 <div className="flex items-center gap-2 text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#4C59D8] shrink-0" />
-                  <span>General Dermatology, Eczema, Psoriasis & Allergy Care</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
+                  <span>General Dermatology, Eczema, Psoriasis &amp; Allergy Care</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#4C59D8] shrink-0" />
-                  <span>Hair Thinning, Alopecia & Scalp Disorders</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
+                  <span>Hair Thinning, Alopecia &amp; Scalp Disorders</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#4C59D8] shrink-0" />
-                  <span>Acne Scar Removal & Pigmentation Restoration</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
+                  <span>Acne Scar Removal &amp; Pigmentation Restoration</span>
                 </div>
               </div>
             </div>
 
             {/* Action Button */}
-            <div className="p-6 bg-[#FAFAF8] border-t border-slate-100">
+            <div className="p-6 bg-[#F8FAFC] border-t border-slate-100">
               <button
                 onClick={() => onBookDoctor(DOCTOR_CHANDAN.name)}
-                className="w-full py-3.5 px-4 rounded-full bg-[#5865E0] hover:bg-[#4C59D8] text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-4 rounded-full bg-[#14B8A6] hover:bg-[#0F766E] text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
               >
                 <Sparkles className="w-4 h-4 text-white" />
                 <span>Consult Dr. Chandan Singh Kushwah (Skin Specialist)</span>

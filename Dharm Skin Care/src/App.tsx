@@ -3,14 +3,19 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AboutUsSection } from './components/AboutUsSection';
 import { WhyChooseUs } from './components/WhyChooseUs';
+import { VisionSimulator } from './components/VisionSimulator';
+import { SymptomScreener } from './components/SymptomScreener';
 import { EyeCareServices } from './components/EyeCareServices';
 import { SkinCareServices } from './components/SkinCareServices';
 import { DoctorProfile } from './components/DoctorProfile';
 import { TechShowcase } from './components/TechShowcase';
+import { BeforeAfterShowcase } from './components/BeforeAfterShowcase';
+import { FaqSection } from './components/FaqSection';
 import { Testimonials } from './components/Testimonials';
-import { VirtualTour360 } from './components/VirtualTour360';
 import { ClinicInfoAndMap } from './components/ClinicInfoAndMap';
-import { AppointmentSection } from './components/AppointmentSection';
+import { AppointmentSection, type BookingDetailsSubmitted } from './components/AppointmentSection';
+import { StickyEmergencyBar } from './components/StickyEmergencyBar';
+import { BookingConfirmationModal, type BookingDetails } from './components/BookingConfirmationModal';
 import { Footer } from './components/Footer';
 import { ServiceModal } from './components/ServiceModal';
 import { useSmoothScroll, getLenis } from './hooks/useSmoothScroll';
@@ -21,6 +26,7 @@ export function App() {
 
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const [preselectedBookingService, setPreselectedBookingService] = useState<string>('');
+  const [bookingConfirmation, setBookingConfirmation] = useState<BookingDetails | null>(null);
 
   const handleOpenAppointmentModal = (serviceName?: string) => {
     if (serviceName) {
@@ -37,21 +43,37 @@ export function App() {
     }
   };
 
+  const handleBookingSubmitted = (details: BookingDetailsSubmitted) => {
+    setBookingConfirmation(details);
+  };
+
   return (
-    <div className="min-h-screen bg-[#FAFAF8] text-slate-900 font-sans selection:bg-[#DFE5FA] selection:text-[#3B47C5]">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 font-sans selection:bg-[#CCFBF1] selection:text-[#0F766E] relative pb-16 sm:pb-0">
       {/* Sticky Navbar */}
       <Navbar onOpenAppointment={() => handleOpenAppointmentModal()} />
 
       {/* Hero Section */}
       <Hero onOpenAppointment={() => handleOpenAppointmentModal()} />
 
-      {/* About Us Section - Inspired by Design Inspiration Image */}
+      {/* About Us Section */}
       <AboutUsSection />
 
       {/* Why Choose Us / Trust Features */}
       <WhyChooseUs />
 
-      {/* Eye Care Services (Primary Focus) */}
+      {/* Interactive Vision Condition Simulator */}
+      <VisionSimulator
+        onBookService={(serviceName) => handleOpenAppointmentModal(serviceName)}
+      />
+
+      {/* Interactive Patient Symptom Screener */}
+      <SymptomScreener
+        onBookRecommendation={(serviceName, doctorName) =>
+          handleOpenAppointmentModal(`${serviceName} (Consultation with ${doctorName})`)
+        }
+      />
+
+      {/* Eye Care Services */}
       <EyeCareServices
         onSelectService={(service) => setSelectedService(service)}
         onBookService={(serviceName) => handleOpenAppointmentModal(serviceName)}
@@ -73,20 +95,31 @@ export function App() {
         onBookTechService={(serviceName) => handleOpenAppointmentModal(serviceName)}
       />
 
+      {/* Before & After Clinical Results Showcase */}
+      <BeforeAfterShowcase
+        onBookTreatment={(treatmentName) => handleOpenAppointmentModal(treatmentName)}
+      />
+
+      {/* Frequently Asked Questions */}
+      <FaqSection />
+
       {/* Patient Testimonials */}
       <Testimonials />
-
-      {/* Interactive 360° Virtual Hospital & Street View Tour */}
-      <VirtualTour360 />
 
       {/* Hours Table & Location Map */}
       <ClinicInfoAndMap />
 
       {/* Appointment CTA Form */}
-      <AppointmentSection preselectedService={preselectedBookingService} />
+      <AppointmentSection
+        preselectedService={preselectedBookingService}
+        onBookingComplete={handleBookingSubmitted}
+      />
 
       {/* Footer */}
       <Footer />
+
+      {/* Sticky Smart Emergency & Live OPD Dock */}
+      <StickyEmergencyBar onOpenAppointment={() => handleOpenAppointmentModal()} />
 
       {/* Interactive Service Detail Modal */}
       <ServiceModal
@@ -94,10 +127,14 @@ export function App() {
         onClose={() => setSelectedService(null)}
         onBook={(serviceName) => handleOpenAppointmentModal(serviceName)}
       />
+
+      {/* Appointment Confirmation & Calendar Sync Modal */}
+      <BookingConfirmationModal
+        booking={bookingConfirmation}
+        onClose={() => setBookingConfirmation(null)}
+      />
     </div>
   );
 }
 
-
 export default App;
-

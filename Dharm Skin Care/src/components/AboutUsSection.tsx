@@ -50,8 +50,8 @@ export const AboutUsSection: React.FC = () => {
           <div className="lg:col-span-6 space-y-6 text-left">
             
             {/* Small Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EEF1FC] text-[#4C59D8] text-xs sm:text-sm font-bold tracking-wide">
-              <Stethoscope className="w-4 h-4 text-[#4C59D8]" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F0FDFA] text-[#0F766E] text-xs sm:text-sm font-bold tracking-wide">
+              <Stethoscope className="w-4 h-4 text-[#0F766E]" />
               <span>About Us</span>
             </div>
 
@@ -69,8 +69,8 @@ export const AboutUsSection: React.FC = () => {
             <div className="space-y-6 pt-2">
               
               {/* Feature 1 */}
-              <div className="about-feature-row flex items-start gap-4 p-3 rounded-2xl transition-colors hover:bg-[#EFF2FC]/60">
-                <div className="w-12 h-12 rounded-2xl bg-[#EEF1FC] flex items-center justify-center text-[#4C59D8] shrink-0 shadow-xs">
+              <div className="about-feature-row flex items-start gap-4 p-3 rounded-2xl transition-colors hover:bg-[#F0FDFA]/60">
+                <div className="w-12 h-12 rounded-2xl bg-[#F0FDFA] flex items-center justify-center text-[#0F766E] shrink-0 shadow-xs">
                   <HeartPulse className="w-6 h-6" />
                 </div>
                 <div>
@@ -84,8 +84,8 @@ export const AboutUsSection: React.FC = () => {
               </div>
 
               {/* Feature 2 */}
-              <div className="about-feature-row flex items-start gap-4 p-3 rounded-2xl transition-colors hover:bg-[#EFF2FC]/60">
-                <div className="w-12 h-12 rounded-2xl bg-[#EEF1FC] flex items-center justify-center text-[#4C59D8] shrink-0 shadow-xs">
+              <div className="about-feature-row flex items-start gap-4 p-3 rounded-2xl transition-colors hover:bg-[#F0FDFA]/60">
+                <div className="w-12 h-12 rounded-2xl bg-[#F0FDFA] flex items-center justify-center text-[#0F766E] shrink-0 shadow-xs">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
@@ -99,8 +99,8 @@ export const AboutUsSection: React.FC = () => {
               </div>
 
               {/* Feature 3 */}
-              <div className="about-feature-row flex items-start gap-4 p-3 rounded-2xl transition-colors hover:bg-[#EFF2FC]/60">
-                <div className="w-12 h-12 rounded-2xl bg-[#EEF1FC] flex items-center justify-center text-[#4C59D8] shrink-0 shadow-xs">
+              <div className="about-feature-row flex items-start gap-4 p-3 rounded-2xl transition-colors hover:bg-[#F0FDFA]/60">
+                <div className="w-12 h-12 rounded-2xl bg-[#F0FDFA] flex items-center justify-center text-[#0F766E] shrink-0 shadow-xs">
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <div>
@@ -120,7 +120,7 @@ export const AboutUsSection: React.FC = () => {
               <a
                 href="#location"
                 onClick={handleScrollToContact}
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#4C59D8]/25 transition-all hover:scale-105 active:scale-95"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0F766E] hover:bg-[#0D9488] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#0F766E]/25 transition-all hover:scale-105 active:scale-95"
               >
                 <span>View More About Us</span>
                 <ArrowRight className="w-4 h-4" />
@@ -171,12 +171,12 @@ export const AboutUsSection: React.FC = () => {
                   </div>
 
                   {/* Consultation Support Badge */}
-                  <div className="bg-[#EEF1FC] p-3 rounded-2xl border border-[#DFE5FA] flex items-center gap-2.5 hover:shadow-md transition-shadow">
-                    <div className="w-8 h-8 rounded-xl bg-[#4C59D8] text-white flex items-center justify-center shrink-0">
+                  <div className="bg-[#F0FDFA] p-3 rounded-2xl border border-[#CCFBF1] flex items-center gap-2.5 hover:shadow-md transition-shadow">
+                    <div className="w-8 h-8 rounded-xl bg-[#0F766E] text-white flex items-center justify-center shrink-0">
                       <Video className="w-4 h-4" />
                     </div>
                     <div className="text-left">
-                      <div className="text-[11px] font-bold text-[#4C59D8] uppercase tracking-wider leading-none">
+                      <div className="text-[11px] font-bold text-[#0F766E] uppercase tracking-wider leading-none">
                         Video Support
                       </div>
                       <div className="text-[10px] text-slate-600 font-semibold mt-0.5">
@@ -189,7 +189,7 @@ export const AboutUsSection: React.FC = () => {
               </div>
 
               {/* Opening Hours Card Floating Below Cleanly */}
-              <div className="mt-5 bg-[#4C59D8] text-white p-5 rounded-3xl shadow-2xl border border-white/10 relative">
+              <div className="mt-5 bg-[#0F766E] text-white p-5 rounded-3xl shadow-2xl border border-white/10 relative">
                 
                 {/* Circular Clock Badge Top Right */}
                 <div ref={clockBadgeRef} className="absolute -top-4 right-4 w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-lg border-2 border-white">
