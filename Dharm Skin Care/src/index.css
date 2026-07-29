@@ -39,6 +39,18 @@
   }
 }
 
+/* Theme Text Selection Highlight */
+::selection {
+  background-color: #4C59D8;
+  color: #FFFFFF;
+}
+
+::-moz-selection {
+  background-color: #4C59D8;
+  color: #FFFFFF;
+}
+
+
 /* Custom smooth scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

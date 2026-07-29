@@ -120,7 +120,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
               </div>
 
               {/* Floating Badge 2: Bottom Right Client Count */}
-              <div className="absolute bottom-6 -right-2 sm:-right-6 bg-white/95 backdrop-blur-md py-2.5 px-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
+              <div className="absolute bottom-20 -right-2 sm:-right-6 bg-white/95 backdrop-blur-md py-2.5 px-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#4C59D8] text-white flex items-center justify-center shrink-0">
                   <Users className="w-5 h-5" />
                 </div>
@@ -138,4 +138,3 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
     </section>
   );
 };
-
