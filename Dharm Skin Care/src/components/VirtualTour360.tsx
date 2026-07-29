@@ -4,11 +4,12 @@ import { Compass, MapPin, ExternalLink, Navigation, Sparkles, CheckCircle2 } fro
 export const VirtualTour360: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'streetview' | 'satellite' | 'perimetry'>('streetview');
 
-  // Google Maps & Street View Embed URLs for Dharm Skin & Eye Centre, Mathura
-  // Coordinates: 27.4913258, 77.6715175 (Opposite Tanishq Jewellers, Shankar Vihar, Mathura)
-  const streetViewEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.638541929362!2d77.6715174762089!3d27.49132577630765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397371109a15f01d%3A0x6b4034720979435b!2sDharm%20skin%20and%20EYE%20centre!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin";
+  // Google Maps Street View 360° Camera Mode (output=svembed & layer=c)
+  // Location: Dharm Skin & Eye Centre (27.4913258, 77.6715175), Krishna Nagar, Mathura
+  const streetViewEmbedUrl = "https://maps.google.com/maps?q=27.4913258,77.6715175&layer=c&cbll=27.4913258,77.6715175&cbp=12,0,,0,0&output=svembed";
   
-  const satelliteEmbedUrl = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14162.554167717448!2d77.6715175!3d27.4913258!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397371109a15f01d%3A0x6b4034720979435b!2sDharm%20skin%20and%20EYE%20centre!5e1!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin";
+  // Google Maps 3D Satellite Aerial View (t=k)
+  const satelliteEmbedUrl = "https://maps.google.com/maps?q=27.4913258,77.6715175&t=k&z=19&ie=UTF8&iwloc=&output=embed";
 
   const directStreetViewLink = "https://www.google.com/maps/@27.4913258,77.6715175,3a,75y,90h,90t/data=!3m6!1e1!3m4!1s0x397371109a15f01d:0x6b4034720979435b!2e0!7i13312!8i6656";
 
