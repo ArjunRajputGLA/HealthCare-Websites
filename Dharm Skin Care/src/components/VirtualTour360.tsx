@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Compass, MapPin, ExternalLink, Navigation, Sparkles, CheckCircle2 } from 'lucide-react';
+import { CLINIC_INFO } from '../data/clinicData';
 
 export const VirtualTour360: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'streetview' | 'satellite' | 'perimetry'>('streetview');
 
-  // Google Maps Street View 360° Camera Mode (output=svembed & layer=c)
-  // Location: Dharm Skin & Eye Centre (27.4913258, 77.6715175), Krishna Nagar, Mathura
-  const streetViewEmbedUrl = "https://maps.google.com/maps?q=27.4913258,77.6715175&layer=c&cbll=27.4913258,77.6715175&cbp=12,0,,0,0&output=svembed";
+  // Exact Official Google Photosphere 360° Embed URL for Dharm Skin & Eye Centre, Mathura
+  // Panoid: SIxNQnNZvUYYUMU2UTnbCQ | Place FID: 0x397371633302004f:0x1af9612fa5ff6c1e
+  const streetViewEmbedUrl = "https://www.google.com/maps/embed?pb=!1m0!3m2!1sen!2sin!4v1700000000000!6m8!1m7!1sSIxNQnNZvUYYUMU2UTnbCQ!2m2!1d27.4913258!2d77.6715175!3f60.606464!4f0!5f0.7820865974627469";
   
-  // Google Maps 3D Satellite Aerial View (t=k)
-  const satelliteEmbedUrl = "https://maps.google.com/maps?q=27.4913258,77.6715175&t=k&z=19&ie=UTF8&iwloc=&output=embed";
+  // Google Maps Satellite Location View
+  const satelliteEmbedUrl = "https://maps.google.com/maps?q=Dharm+skin+and+EYE+centre,+Shankar+Vihar,+Krishna+Nagar,+Mathura,+Uttar+Pradesh+281004&t=k&z=19&ie=UTF8&iwloc=&output=embed";
 
-  const directStreetViewLink = "https://www.google.com/maps/@27.4913258,77.6715175,3a,75y,90h,90t/data=!3m6!1e1!3m4!1s0x397371109a15f01d:0x6b4034720979435b!2e0!7i13312!8i6656";
+  // Official Direct Link provided by user for Google Street View Photosphere
+  const directStreetViewLink = "https://www.google.com/local/place/fid/0x397371633302004f:0x1af9612fa5ff6c1e/photosphere?iu=https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid%3DSIxNQnNZvUYYUMU2UTnbCQ%26cb_client%3Dsearch.gws-prod.gps%26yaw%3D60.606464%26pitch%3D0%26thumbfov%3D100%26w%3D0%26h%3D0&ik=CAISFlNJeE5Rbk5adlVZWVVNVTJVVG5iQ1E%3D";
 
   return (
     <section id="virtual-tour" className="py-20 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
@@ -25,15 +27,15 @@ export const VirtualTour360: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#4C59D8]/20 border border-[#4C59D8]/40 text-white text-xs font-bold uppercase tracking-wider mb-3">
             <Compass className="w-4 h-4 text-[#F59E0B]" />
-            <span>Google Street View 360°</span>
+            <span>Official Google Photosphere 360°</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Google Street View 360° Tour
+            Google Street View 360° Hospital Tour
           </h2>
           
           <p className="text-slate-300 text-base sm:text-lg mt-3 font-medium">
-            Explore the clinic entrance, street location, and surrounding Krishna Nagar area directly on Google Street View.
+            Take an interactive 360° Google Street View tour of Dharm Skin &amp; Eye Centre in {CLINIC_INFO.address}.
           </p>
         </div>
 
@@ -82,7 +84,7 @@ export const VirtualTour360: React.FC = () => {
             className="px-6 py-2.5 rounded-full font-bold text-xs sm:text-sm bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg transition-all flex items-center gap-2 cursor-pointer"
           >
             <ExternalLink className="w-4 h-4" />
-            <span>Open Google Street View App</span>
+            <span>Open in Google Maps Street View</span>
           </a>
         </div>
 
@@ -131,8 +133,8 @@ export const VirtualTour360: React.FC = () => {
           <div className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-white/20 text-xs font-bold text-white flex items-center gap-2 shadow-xl z-20">
             <div className="w-3 h-3 rounded-full bg-emerald-500 animate-ping" />
             <span>
-              {activeTab === 'streetview' && 'Google Street View 360° • Opposite Tanishq Jewellers, Shankar Vihar, Mathura'}
-              {activeTab === 'satellite' && 'Google Maps Location & Satellite View • Mathura, UP'}
+              {activeTab === 'streetview' && 'Google Street View 360° • Shankar Vihar, Krishna Nagar, Mathura'}
+              {activeTab === 'satellite' && 'Google Maps Satellite View • Shankar Vihar, Mathura'}
               {activeTab === 'perimetry' && "Mathura's First Perimetry Diagnostic Suite"}
             </span>
           </div>
@@ -140,7 +142,7 @@ export const VirtualTour360: React.FC = () => {
           {/* Bottom Hint Overlay */}
           <div className="absolute bottom-4 right-4 bg-slate-900/90 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 text-xs font-bold text-white hidden sm:flex items-center gap-2 shadow-xl z-20">
             <CheckCircle2 className="w-4 h-4 text-[#4C59D8]" />
-            <span>Use mouse / touch inside viewer to pan, zoom, &amp; rotate 360°</span>
+            <span>Use mouse or touch to rotate 360°, pan, and zoom</span>
           </div>
 
         </div>

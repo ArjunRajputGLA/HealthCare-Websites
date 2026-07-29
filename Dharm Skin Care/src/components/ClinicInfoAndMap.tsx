@@ -21,7 +21,7 @@ export const ClinicInfoAndMap: React.FC = () => {
             Clinic Hours & Location
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-3 font-medium">
-            Conveniently situated in Krishna Nagar, opposite Tanishq Jewellers. Walk-ins and appointment bookings welcome.
+            Conveniently situated in Shankar Vihar, Krishna Nagar, Mathura. Walk-ins and appointment bookings welcome.
           </p>
         </div>
 
@@ -150,7 +150,7 @@ export const ClinicInfoAndMap: React.FC = () => {
             {/* Map Overlay Badge */}
             <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-slate-200 text-xs font-bold text-slate-900 flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-[#4C59D8] animate-ping" />
-              <span>Opposite Tanishq Jewellers, Shankar Vihar, Mathura</span>
+              <span>Shankar Vihar, Krishna Nagar, Mathura</span>
             </div>
           </div>
         </div>

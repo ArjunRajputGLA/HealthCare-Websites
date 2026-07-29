@@ -66,7 +66,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
           </div>
 
           <div className="p-4 rounded-2xl bg-[#EEF1FC] border border-[#DFE5FA] text-xs font-semibold text-[#4C59D8]">
-            <strong>Diagnostic Note:</strong> Early evaluation ensures maximum visual protection. Consult our specialists opposite Tanishq Jewellers, Mathura.
+            <strong>Diagnostic Note:</strong> Early evaluation ensures maximum visual protection. Consult our specialists in Shankar Vihar, Krishna Nagar, Mathura.
           </div>
         </div>
 
