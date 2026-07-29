@@ -2,12 +2,24 @@ import React, { useState } from 'react';
 import { Calendar, Phone, Send, CheckCircle2, MessageSquare, Shield, Clock } from 'lucide-react';
 import { CLINIC_INFO, EYE_CARE_SERVICES, SKIN_CARE_SERVICES } from '../data/clinicData';
 
+export interface BookingDetailsSubmitted {
+  refNumber: string;
+  patientName: string;
+  phone: string;
+  service: string;
+  preferredDate: string;
+  preferredTime: string;
+  notes?: string;
+}
+
 interface AppointmentSectionProps {
   preselectedService?: string;
+  onBookingComplete?: (details: BookingDetailsSubmitted) => void;
 }
 
 export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
   preselectedService = '',
+  onBookingComplete
 }) => {
   const [formData, setFormData] = useState({
     patientName: '',
@@ -23,6 +35,18 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    const refNum = `DSC-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+    if (onBookingComplete) {
+      onBookingComplete({
+        refNumber: refNum,
+        patientName: formData.patientName || 'Patient',
+        phone: formData.phone,
+        service: formData.service,
+        preferredDate: formData.preferredDate || 'Earliest Available',
+        preferredTime: formData.preferredTime,
+        notes: formData.notes
+      });
+    }
   };
 
   const handleWhatsAppBooking = () => {
@@ -33,12 +57,12 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#EFF2FC] border-t border-[#DFE5FA]">
+    <section id="contact" className="py-20 bg-[#F0FDFA] border-t border-[#CCFBF1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: CTA Pitch & Direct Call */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-[#4C59D8] text-xs font-bold uppercase tracking-wider shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-[#0F766E] text-xs font-bold uppercase tracking-wider shadow-xs">
               <Calendar className="w-4 h-4" />
               <span>Easy Appointment Request</span>
             </div>
@@ -58,7 +82,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
 
               <a
                 href={`tel:${CLINIC_INFO.phoneRaw}`}
-                className="flex items-center gap-3 p-4 rounded-2xl bg-[#4C59D8] text-white hover:bg-[#3B47C5] transition-all shadow-md group"
+                className="flex items-center gap-3 p-4 rounded-2xl bg-[#0F766E] text-white hover:bg-[#0D9488] transition-all shadow-md group"
               >
                 <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
                   <Phone className="w-5 h-5" />
@@ -80,11 +104,11 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
 
             <div className="flex items-center gap-4 text-xs text-slate-500 pt-2 font-medium">
               <div className="flex items-center gap-1.5">
-                <Shield className="w-4 h-4 text-[#4C59D8]" />
+                <Shield className="w-4 h-4 text-[#0F766E]" />
                 <span>No Advance Payment Required</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-[#4C59D8]" />
+                <Clock className="w-4 h-4 text-[#0F766E]" />
                 <span>Fast OPD Confirmation</span>
               </div>
             </div>
@@ -101,7 +125,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                   Appointment Request Received!
                 </h3>
                 <p className="text-slate-600 text-base max-w-md mx-auto">
-                  Thank you, <strong>{formData.patientName}</strong>. Our staff at Dharm Skin & Eye Centre will call you shortly at <strong>{formData.phone}</strong> to confirm your slot.
+                  Thank you, <strong>{formData.patientName}</strong>. Our staff at Dharm Skin &amp; Eye Centre will call you shortly at <strong>{formData.phone}</strong> to confirm your slot.
                 </p>
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                   <button
@@ -141,7 +165,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                       placeholder="e.g. Ramesh Kumar"
                       value={formData.patientName}
                       onChange={(e) => setFormData({ ...formData, patientName: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/20 outline-none text-slate-900 text-sm"
                     />
                   </div>
 
@@ -155,7 +179,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/20 outline-none text-slate-900 text-sm"
                     />
                   </div>
                 </div>
@@ -167,7 +191,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm bg-white"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/20 outline-none text-slate-900 text-sm bg-white"
                   >
                     <optgroup label="Eye Care Services">
                       {EYE_CARE_SERVICES.map((s) => (
@@ -176,7 +200,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                         </option>
                       ))}
                     </optgroup>
-                    <optgroup label="Skin & Aesthetic Services">
+                    <optgroup label="Skin &amp; Aesthetic Services">
                       {SKIN_CARE_SERVICES.map((s) => (
                         <option key={s.id} value={s.name}>
                           {s.name}
@@ -195,7 +219,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                       type="date"
                       value={formData.preferredDate}
                       onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/20 outline-none text-slate-900 text-sm bg-white"
                     />
                   </div>
 
@@ -206,7 +230,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                     <select
                       value={formData.preferredTime}
                       onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/20 outline-none text-slate-900 text-sm bg-white"
                     >
                       <option>Morning (9:00 AM - 1:00 PM)</option>
                       <option>Afternoon (1:00 PM - 4:00 PM)</option>
@@ -224,14 +248,14 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({
                     placeholder="Describe any specific symptoms or requests..."
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#4C59D8] focus:ring-2 focus:ring-[#4C59D8]/20 outline-none text-slate-900 text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/20 outline-none text-slate-900 text-sm"
                   />
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row gap-3">
                   <button
                     type="submit"
-                    className="flex-1 py-4 px-6 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-base shadow-lg shadow-[#4C59D8]/30 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="flex-1 py-4 px-6 rounded-full bg-[#0F766E] hover:bg-[#0D9488] text-white font-bold text-base shadow-lg shadow-[#0F766E]/30 transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-4 h-4 text-white" />
                     <span>Submit Appointment Request</span>

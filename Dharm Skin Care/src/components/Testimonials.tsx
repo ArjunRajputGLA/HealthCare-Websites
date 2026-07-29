@@ -4,11 +4,11 @@ import { TESTIMONIALS } from '../data/clinicData';
 
 export const Testimonials: React.FC = () => {
   return (
-    <section className="py-20 bg-[#FAFAF8] border-t border-slate-200/60">
+    <section className="py-20 bg-[#F8FAFC] border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF1FC] text-[#4C59D8] text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F0FDFA] text-[#0F766E] text-xs font-bold uppercase tracking-wider mb-3">
             <MessageSquare className="w-4 h-4" />
             <span>Patient Feedback</span>
           </div>
@@ -36,12 +36,12 @@ export const Testimonials: React.FC = () => {
                     ))}
                   </div>
 
-                  <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#EEF1FC] text-[#4C59D8]">
+                  <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#F0FDFA] text-[#0F766E]">
                     {item.serviceReceived}
                   </span>
                 </div>
 
-                <Quote className="w-8 h-8 text-[#4C59D8]/20 mb-2" />
+                <Quote className="w-8 h-8 text-[#0F766E]/20 mb-2" />
 
                 <p className="text-slate-700 text-sm leading-relaxed italic mb-6">
                   "{item.comment}"

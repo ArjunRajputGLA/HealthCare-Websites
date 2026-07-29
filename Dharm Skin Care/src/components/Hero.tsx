@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Calendar, Stethoscope, Star, Users, ArrowRight, Compass } from 'lucide-react';
+import { Calendar, Stethoscope, Star, Users } from 'lucide-react';
 import { getLenis } from '../hooks/useSmoothScroll';
 import { animate, createTimeline, stagger } from 'animejs';
 import { animateCounter, animateFloatingLoop } from '../utils/animeEffects';
@@ -69,30 +69,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
           scale: [0.92, 1],
           duration: 1100
         },
-        '-=600'
-      );
+    );
   }, []);
-
-
-  const handleAboutClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const lenis = getLenis();
-    if (lenis) {
-      lenis.scrollTo('#about-us', { offset: -110 });
-    } else {
-      const el = document.getElementById('about-us');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="hero" className="pt-24 sm:pt-28 md:pt-36 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Main Hero Container Card - Soft Periwinkle Lavender */}
-      <div className="relative rounded-3xl lg:rounded-[36px] bg-[#EFF2FC] border border-[#DFE5FA] p-6 sm:p-10 lg:p-14 overflow-hidden shadow-xs">
+      {/* Main Hero Container Card - Soft Mint Teal */}
+      <div className="relative rounded-3xl lg:rounded-[36px] bg-[#F0FDFA] border border-[#CCFBF1] p-6 sm:p-10 lg:p-14 overflow-hidden shadow-xs">
         
         {/* Background Subtle Gradient Blobs */}
         <div className="absolute -top-20 -left-20 w-80 h-80 bg-white/40 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#4C59D8]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#0F766E]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">
           
@@ -100,9 +87,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
           <div className="lg:col-span-7 space-y-6 text-left">
             
             {/* Tag Badge */}
-            <div className="hero-anime-item inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 shadow-xs border border-slate-200/80 text-[#4C59D8] text-xs sm:text-sm font-bold">
-              <Stethoscope className="w-4 h-4 text-[#4C59D8]" />
-              <span>Your Skin & Eye Health Our Priority</span>
+            <div className="hero-anime-item inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 shadow-xs border border-slate-200/80 text-[#0F766E] text-xs sm:text-sm font-bold">
+              <Stethoscope className="w-4 h-4 text-[#0F766E]" />
+              <span>Your Skin &amp; Eye Health Our Priority</span>
             </div>
 
             {/* Main Headline */}
@@ -112,41 +99,47 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
 
             {/* Subheadline */}
             <p className="hero-anime-item text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-xl">
-              Experience healthcare you trust. Our dedicated team provides compassionate, high-quality care with Mathura’s 1st Perimetry machine & imported lens cataract surgery.
+              Experience healthcare you trust. Our dedicated team provides compassionate, high-quality care with Mathura’s 1st Perimetry machine &amp; imported lens cataract surgery.
             </p>
 
             {/* CTA Pill Buttons */}
             <div className="hero-anime-item flex flex-wrap items-center gap-3 pt-2">
               <button
                 onClick={onOpenAppointment}
-                className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#4C59D8]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0F766E] hover:bg-[#0D9488] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#0F766E]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <Calendar className="w-4 h-4 text-white" />
-                <span>Book A Appointment</span>
+                <span>Book Appointment</span>
               </button>
 
               <a
-                href="#virtual-tour"
+                href="#vision-simulator"
                 onClick={(e) => {
                   e.preventDefault();
                   const lenis = getLenis();
-                  if (lenis) lenis.scrollTo('#virtual-tour', { offset: -110 });
-                  else document.getElementById('virtual-tour')?.scrollIntoView({ behavior: 'smooth' });
+                  if (lenis) lenis.scrollTo('#vision-simulator', { offset: -110 });
+                  else document.getElementById('vision-simulator')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold text-sm sm:text-base shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 text-white font-bold text-sm sm:text-base shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
-                <Compass className="w-4 h-4 text-[#F59E0B]" />
-                <span>360° Virtual Tour</span>
+                <span className="text-base">👁️</span>
+                <span>Vision Simulator</span>
               </a>
 
               <a
-                href="#about-us"
-                onClick={handleAboutClick}
-                className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#5865E0] hover:bg-[#4C59D8] text-white font-bold text-sm sm:text-base shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                href="#screener"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const lenis = getLenis();
+                  if (lenis) lenis.scrollTo('#screener', { offset: -110 });
+                  else document.getElementById('screener')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold text-sm sm:text-base shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
-                <span>About Us</span>
-                <ArrowRight className="w-4 h-4" />
+                <Stethoscope className="w-4 h-4 text-[#0F766E]" />
+                <span>Symptom Screener</span>
               </a>
+
             </div>
 
             {/* Google Rating Badge */}
@@ -169,8 +162,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
             <div className="relative w-full max-w-md lg:max-w-none flex justify-center items-center">
               
               {/* Concentric Circle Backdrops */}
-              <div ref={circle1Ref} className="absolute w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] bg-[#E2E7FB] rounded-full -z-10" />
-              <div ref={circle2Ref} className="absolute w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] bg-[#D7DEF9] rounded-full -z-10" />
+              <div ref={circle1Ref} className="absolute w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] bg-[#CCFBF1] rounded-full -z-10" />
+              <div ref={circle2Ref} className="absolute w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] bg-[#A7F3D0] rounded-full -z-10" />
 
               {/* Main Doctor Frame */}
               <div className="hero-doctor-frame relative w-[280px] sm:w-[340px] h-[360px] sm:h-[430px] rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white transition-transform duration-300 hover:scale-[1.02]">
@@ -191,7 +184,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
                 <div className="flex -space-x-2">
                   <img src="/images/ChandanSinghKushwah.jpg" alt="Doctor" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
                   <img src="/images/arpita-gupta.jpg" alt="Doctor" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                  <div ref={yearsRef} className="w-8 h-8 rounded-full bg-[#4C59D8] text-white font-bold text-[10px] flex items-center justify-center border-2 border-white">
+                  <div ref={yearsRef} className="w-8 h-8 rounded-full bg-[#0F766E] text-white font-bold text-[10px] flex items-center justify-center border-2 border-white">
                     13+
                   </div>
                 </div>
@@ -202,7 +195,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
 
               {/* Floating Badge 2: Bottom Right Client Count */}
               <div ref={badge2Ref} className="absolute bottom-16 -right-2 sm:-right-6 bg-white/95 backdrop-blur-md py-2.5 px-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#4C59D8] text-white flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#0F766E] text-white flex items-center justify-center shrink-0">
                   <Users className="w-5 h-5" />
                 </div>
                 <div>

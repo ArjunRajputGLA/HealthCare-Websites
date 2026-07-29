@@ -70,14 +70,14 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
   return (
     <section id="technology" className="py-20 bg-slate-900 text-white relative overflow-hidden">
       {/* Glow Orbs */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#4C59D8]/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#4C59D8]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#0F766E]/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#0F766E]/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-[#4C59D8] text-xs font-bold uppercase tracking-wider mb-3">
-            <Cpu className="w-4 h-4 text-[#4C59D8]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-[#0F766E] text-xs font-bold uppercase tracking-wider mb-3">
+            <Cpu className="w-4 h-4 text-[#0F766E]" />
             <span>Advanced Medical Technology</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
@@ -94,7 +94,7 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
             onClick={() => setActiveTech('perimetry')}
             className={`px-6 py-3 rounded-full font-bold text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer ${
               activeTech === 'perimetry'
-                ? 'bg-[#4C59D8] text-white shadow-lg shadow-[#4C59D8]/40 ring-2 ring-[#4C59D8]'
+                ? 'bg-[#0F766E] text-white shadow-lg shadow-[#0F766E]/40 ring-2 ring-[#0F766E]'
                 : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
             }`}
           >
@@ -106,7 +106,7 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
             onClick={() => setActiveTech('lenses')}
             className={`px-6 py-3 rounded-full font-bold text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer ${
               activeTech === 'lenses'
-                ? 'bg-[#4C59D8] text-white shadow-lg shadow-[#4C59D8]/40 ring-2 ring-[#4C59D8]'
+                ? 'bg-[#0F766E] text-white shadow-lg shadow-[#0F766E]/40 ring-2 ring-[#0F766E]'
                 : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
             }`}
           >
@@ -118,7 +118,7 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
             onClick={() => setActiveTech('yag')}
             className={`px-6 py-3 rounded-full font-bold text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer ${
               activeTech === 'yag'
-                ? 'bg-[#4C59D8] text-white shadow-lg shadow-[#4C59D8]/40 ring-2 ring-[#4C59D8]'
+                ? 'bg-[#0F766E] text-white shadow-lg shadow-[#0F766E]/40 ring-2 ring-[#0F766E]'
                 : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
             }`}
           >
@@ -139,7 +139,7 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
                   className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                <div className="absolute top-4 left-4 bg-[#4C59D8] text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-md">
+                <div className="absolute top-4 left-4 bg-[#0F766E] text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-md">
                   {current.badge}
                 </div>
               </div>
@@ -148,7 +148,7 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
             {/* Text Content */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <div className="text-[#4C59D8] font-bold text-sm uppercase tracking-wider mb-1">
+                <div className="text-[#0F766E] font-bold text-sm uppercase tracking-wider mb-1">
                   {current.subtitle}
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -163,7 +163,7 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {current.features.map((feat, idx) => (
                   <div key={idx} className="flex items-start gap-2.5 text-slate-200 text-sm font-medium">
-                    <CheckCircle className="w-4 h-4 text-[#4C59D8] shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-[#0F766E] shrink-0 mt-0.5" />
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -172,7 +172,7 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
               <div className="pt-4 flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => onBookTechService(current.serviceName)}
-                  className="px-7 py-3.5 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer hover:scale-105"
+                  className="px-7 py-3.5 rounded-full bg-[#0F766E] hover:bg-[#0D9488] text-white font-bold text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer hover:scale-105"
                 >
                   <span>Book Appointment for {current.serviceName}</span>
                   <ArrowRight className="w-4 h-4" />

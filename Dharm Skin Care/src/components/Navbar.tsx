@@ -66,12 +66,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
   const navLinks = [
     { name: 'Home', href: '#hero' },
     { name: 'About Us', href: '#about-us' },
+    { name: 'Vision Simulator', href: '#vision-simulator' },
+    { name: 'Symptom Screener', href: '#screener' },
     { name: 'Eye Care', href: '#eye-care' },
     { name: 'Skin Care', href: '#skin-care' },
-    { name: 'Meet Doctors', href: '#doctor' },
+    { name: 'Doctors', href: '#doctor' },
     { name: 'Technology', href: '#technology' },
-    { name: '360° Tour', href: '#virtual-tour' },
-    { name: 'Contact Us', href: '#location' },
+    { name: 'Results', href: '#results-gallery' },
+    { name: 'FAQ', href: '#faq' },
+    { name: 'Contact', href: '#location' },
   ];
 
   return (
@@ -80,8 +83,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
       }`}
     >
-      {/* Top Utility Header Bar - Periwinkle Royal Blue */}
-      <div className="bg-[#4C59D8] text-white text-xs py-2 px-4 sm:px-6 lg:px-8 border-b border-white/10 hidden md:block">
+      {/* Top Utility Header Bar - Deep Emerald Teal */}
+      <div className="bg-[#0F766E] text-white text-xs py-2 px-4 sm:px-6 lg:px-8 border-b border-white/10 hidden md:block">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-6">
             <div className="flex items-center gap-1.5 font-medium opacity-90">
@@ -128,12 +131,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
             onClick={(e) => handleNavClick(e, '#hero')}
             className="flex items-center gap-3 group shrink-0"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#4C59D8] flex items-center justify-center text-white shadow-md shadow-[#4C59D8]/20 group-hover:bg-[#3B47C5] transition-colors shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-[#0F766E] flex items-center justify-center text-white shadow-md shadow-[#0F766E]/20 group-hover:bg-[#0D9488] transition-colors shrink-0">
               <Eye className="w-5 h-5 text-white" />
             </div>
             <div className="shrink-0">
               <div className="font-sans text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-none">
-                Dharm <span className="text-[#4C59D8]">Skin & Eye</span>
+                Dharm <span className="text-[#0F766E]">Skin & Eye</span>
               </div>
               <div className="text-[10px] text-slate-500 font-semibold tracking-wider uppercase mt-1">
                 Centre • Mathura
@@ -148,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="px-3 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold text-slate-700 hover:text-[#4C59D8] hover:bg-[#EEF1FC] transition-all whitespace-nowrap"
+                className="px-3 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold text-slate-700 hover:text-[#0F766E] hover:bg-[#F0FDFA] transition-all whitespace-nowrap"
               >
                 {link.name}
               </a>
@@ -159,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
           <div className="hidden sm:flex items-center gap-3">
             <button
               onClick={onOpenAppointment}
-              className="flex items-center gap-2 px-6 py-2.5 rounded-full text-xs xl:text-sm font-bold text-white bg-[#4C59D8] hover:bg-[#3B47C5] shadow-md shadow-[#4C59D8]/30 transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-full text-xs xl:text-sm font-bold text-white bg-[#0F766E] hover:bg-[#0D9488] shadow-md shadow-[#0F766E]/30 transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Appointment</span>
@@ -171,7 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
             <a
               href={`tel:${CLINIC_INFO.phoneRaw}`}
               aria-label="Call Clinic"
-              className="p-2.5 rounded-full text-[#4C59D8] bg-[#EEF1FC]"
+              className="p-2.5 rounded-full text-[#0F766E] bg-[#F0FDFA]"
             >
               <Phone className="w-4 h-4" />
             </a>
@@ -194,7 +197,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-[#4C59D8] hover:bg-[#EEF1FC]"
+                  className="px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-[#0F766E] hover:bg-[#F0FDFA]"
                 >
                   {link.name}
                 </a>
@@ -204,7 +207,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
             <div className="flex flex-col gap-2 pt-2 border-t border-slate-100">
               <a
                 href={`tel:${CLINIC_INFO.phoneRaw}`}
-                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-bold text-[#4C59D8] bg-[#EEF1FC]"
+                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-bold text-[#0F766E] bg-[#F0FDFA]"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>Call Clinic ({CLINIC_INFO.phone})</span>
@@ -215,7 +218,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
                   setMobileMenuOpen(false);
                   onOpenAppointment();
                 }}
-                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-bold text-white bg-[#4C59D8] shadow-md"
+                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-bold text-white bg-[#0F766E] shadow-md"
               >
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Book Appointment</span>

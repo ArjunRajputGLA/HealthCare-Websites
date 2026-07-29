@@ -24,11 +24,11 @@ export const SkinCareServices: React.FC<SkinCareServicesProps> = ({
 
 
   return (
-    <section id="skin-care" className="py-20 bg-[#FAFAF8] border-t border-slate-200/60">
+    <section id="skin-care" className="py-20 bg-[#F8FAFC] border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF1FC] text-[#4C59D8] text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F0FDFA] text-[#0F766E] text-xs font-bold uppercase tracking-wider mb-3">
             <Sparkles className="w-4 h-4 text-[#F59E0B]" />
             <span>Dermatology &amp; Aesthetic Wing</span>
           </div>
@@ -45,7 +45,7 @@ export const SkinCareServices: React.FC<SkinCareServicesProps> = ({
           <div className="skin-card-anime lg:col-span-7 p-8 rounded-3xl bg-white border border-slate-200 shadow-md flex flex-col justify-between hover:shadow-xl transition-all duration-300">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-[#4C59D8] text-white flex items-center justify-center shadow-md">
+                <div className="w-12 h-12 rounded-2xl bg-[#0F766E] text-white flex items-center justify-center shadow-md">
                   <Stethoscope className="w-6 h-6" />
                 </div>
                 <div>
@@ -64,19 +64,19 @@ export const SkinCareServices: React.FC<SkinCareServicesProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
                 <div className="flex items-center gap-2 text-slate-700 text-sm font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#4C59D8] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
                   <span>General Skin &amp; VD Consultations</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-700 text-sm font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#4C59D8] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
                   <span>Hair Thinning &amp; Alopecia Therapy</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-700 text-sm font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#4C59D8] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
                   <span>Acne Scar &amp; Melasma Care</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-700 text-sm font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#4C59D8] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
                   <span>Allergic Rash &amp; Eczema Management</span>
                 </div>
               </div>
@@ -85,13 +85,13 @@ export const SkinCareServices: React.FC<SkinCareServicesProps> = ({
             <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-100">
               <button
                 onClick={() => onBookService('Skin & Hair Consultation')}
-                className="px-7 py-3 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-sm shadow-md transition-all cursor-pointer hover:scale-105"
+                className="px-7 py-3 rounded-full bg-[#0F766E] hover:bg-[#0D9488] text-white font-bold text-sm shadow-md transition-all cursor-pointer hover:scale-105"
               >
                 Book Skin Consultation
               </button>
               <button
                 onClick={() => onSelectService(SKIN_CARE_SERVICES[0])}
-                className="px-5 py-3 rounded-full text-slate-700 hover:text-[#4C59D8] hover:bg-[#EEF1FC] text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-5 py-3 rounded-full text-slate-700 hover:text-[#0F766E] hover:bg-[#F0FDFA] text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer"
               >
                 <span>Read Dermatology Overview</span>
                 <ArrowRight className="w-4 h-4" />
@@ -104,7 +104,7 @@ export const SkinCareServices: React.FC<SkinCareServicesProps> = ({
             {SKIN_CARE_SERVICES.map((service) => (
               <div
                 key={service.id}
-                className="skin-card-anime p-6 rounded-2xl bg-white border border-slate-200 hover:border-[#4C59D8]/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="skin-card-anime p-6 rounded-2xl bg-white border border-slate-200 hover:border-[#0F766E]/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#FEF3C7] text-amber-900 flex items-center justify-center shrink-0 mt-1">
@@ -119,7 +119,7 @@ export const SkinCareServices: React.FC<SkinCareServicesProps> = ({
                     </p>
                     <button
                       onClick={() => onSelectService(service)}
-                      className="text-xs font-bold text-[#4C59D8] hover:underline flex items-center gap-1 cursor-pointer"
+                      className="text-xs font-bold text-[#0F766E] hover:underline flex items-center gap-1 cursor-pointer"
                     >
                       <span>View Details</span>
                       <ArrowRight className="w-3.5 h-3.5" />

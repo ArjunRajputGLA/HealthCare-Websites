@@ -24,16 +24,16 @@
 
   :root {
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    --color-primary: #4C59D8;
-    --color-primary-dark: #3B47C5;
-    --color-primary-light: #EFF2FC;
+    --color-primary: #0F766E;
+    --color-primary-dark: #0D9488;
+    --color-primary-light: #F0FDFA;
     --color-accent: #F59E0B;
-    --color-surface: #FAFAF8;
+    --color-surface: #F8FAFC;
   }
 
   body {
     font-family: var(--font-sans);
-    background-color: #FAFAF8;
+    background-color: #F8FAFC;
     color: #0F172A;
     overflow-x: hidden;
   }
@@ -41,30 +41,28 @@
 
 /* Theme Text Selection Highlight */
 ::selection {
-  background-color: #DFE5FA !important;
-  color: #3B47C5 !important;
+  background-color: #CCFBF1 !important;
+  color: #0F766E !important;
 }
 
 ::-moz-selection {
-  background-color: #DFE5FA !important;
-  color: #3B47C5 !important;
+  background-color: #CCFBF1 !important;
+  color: #0F766E !important;
 }
-
-
 
 /* Custom smooth scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAFAF8;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
   background: #CBD5E1;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #4C59D8;
+  background: #0F766E;
 }
 
 .font-sans-body {
@@ -73,10 +71,10 @@
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(76, 89, 216, 0.35);
+    box-shadow: 0 0 15px rgba(15, 118, 110, 0.35);
   }
   50% {
-    box-shadow: 0 0 25px rgba(76, 89, 216, 0.65);
+    box-shadow: 0 0 25px rgba(15, 118, 110, 0.65);
   }
 }
 
@@ -95,4 +93,3 @@
   backdrop-filter: blur(8px);
   border: 1px solid rgba(226, 232, 240, 0.8);
 }
-
