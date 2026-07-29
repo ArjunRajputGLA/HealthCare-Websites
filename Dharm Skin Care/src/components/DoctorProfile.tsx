@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Eye, Sparkles, CheckCircle2, UserCheck, Stethoscope } from 'lucide-react';
 import { DOCTOR_CHANDAN, DOCTOR_ARPITA } from '../data/clinicData';
+import { animate, stagger } from 'animejs';
 
 interface DoctorProfileProps {
   onBookDoctor: (doctorName: string) => void;
 }
 
 export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookDoctor }) => {
+  useEffect(() => {
+    animate('.doctor-card-anime', {
+      opacity: [0, 1],
+      translateY: [35, 0],
+      duration: 900,
+      delay: stagger(180),
+      ease: 'outExpo'
+    });
+  }, []);
+
   return (
     <section id="doctor" className="py-20 bg-white border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,7 +38,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookDoctor }) =>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           
           {/* Doctor 1: Dr. Arpita Gupta (Eye Specialist) */}
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300">
+          <div className="doctor-card-anime bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5">
             <div className="p-6 sm:p-8 space-y-6">
               {/* Header Badge */}
               <div className="flex items-center justify-between gap-2">
@@ -99,7 +110,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookDoctor }) =>
           </div>
 
           {/* Doctor 2: Dr. Chandan Singh Kushwah (Dermatologist) */}
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300">
+          <div className="doctor-card-anime bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden flex flex-col justify-between hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5">
             <div className="p-6 sm:p-8 space-y-6">
               {/* Header Badge */}
               <div className="flex items-center justify-between gap-2">

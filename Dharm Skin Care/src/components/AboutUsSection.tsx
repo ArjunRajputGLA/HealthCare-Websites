@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Stethoscope, Clock, ShieldCheck, HeartPulse, Sparkles, ArrowRight, Video } from 'lucide-react';
 import { getLenis } from '../hooks/useSmoothScroll';
+import { animate, stagger } from 'animejs';
 
 export const AboutUsSection: React.FC = () => {
+  const clockBadgeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // 1. Clock badge subtle rotation & pulse
+    if (clockBadgeRef.current) {
+      animate(clockBadgeRef.current, {
+        rotate: [-8, 8],
+        scale: [1, 1.08],
+        duration: 3500,
+        alternate: true,
+        loop: true,
+        ease: 'inOutSine'
+      });
+    }
+
+    // 2. Staggered feature row reveal
+    animate('.about-feature-row', {
+      opacity: [0, 1],
+      translateX: [-20, 0],
+      duration: 800,
+      delay: stagger(150),
+      ease: 'outCubic'
+    });
+  }, []);
+
+
   const handleScrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
     const lenis = getLenis();
@@ -42,8 +69,8 @@ export const AboutUsSection: React.FC = () => {
             <div className="space-y-6 pt-2">
               
               {/* Feature 1 */}
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#EEF1FC] flex items-center justify-center text-[#4C59D8] shrink-0">
+              <div className="about-feature-row flex items-start gap-4 p-3 rounded-2xl transition-colors hover:bg-[#EFF2FC]/60">
+                <div className="w-12 h-12 rounded-2xl bg-[#EEF1FC] flex items-center justify-center text-[#4C59D8] shrink-0 shadow-xs">
                   <HeartPulse className="w-6 h-6" />
                 </div>
                 <div>
@@ -57,8 +84,8 @@ export const AboutUsSection: React.FC = () => {
               </div>
 
               {/* Feature 2 */}
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#EEF1FC] flex items-center justify-center text-[#4C59D8] shrink-0">
+              <div className="about-feature-row flex items-start gap-4 p-3 rounded-2xl transition-colors hover:bg-[#EFF2FC]/60">
+                <div className="w-12 h-12 rounded-2xl bg-[#EEF1FC] flex items-center justify-center text-[#4C59D8] shrink-0 shadow-xs">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
@@ -72,8 +99,8 @@ export const AboutUsSection: React.FC = () => {
               </div>
 
               {/* Feature 3 */}
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#EEF1FC] flex items-center justify-center text-[#4C59D8] shrink-0">
+              <div className="about-feature-row flex items-start gap-4 p-3 rounded-2xl transition-colors hover:bg-[#EFF2FC]/60">
+                <div className="w-12 h-12 rounded-2xl bg-[#EEF1FC] flex items-center justify-center text-[#4C59D8] shrink-0 shadow-xs">
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <div>
@@ -144,7 +171,7 @@ export const AboutUsSection: React.FC = () => {
                   </div>
 
                   {/* Consultation Support Badge */}
-                  <div className="bg-[#EEF1FC] p-3 rounded-2xl border border-[#DFE5FA] flex items-center gap-2.5">
+                  <div className="bg-[#EEF1FC] p-3 rounded-2xl border border-[#DFE5FA] flex items-center gap-2.5 hover:shadow-md transition-shadow">
                     <div className="w-8 h-8 rounded-xl bg-[#4C59D8] text-white flex items-center justify-center shrink-0">
                       <Video className="w-4 h-4" />
                     </div>
@@ -165,7 +192,7 @@ export const AboutUsSection: React.FC = () => {
               <div className="mt-5 bg-[#4C59D8] text-white p-5 rounded-3xl shadow-2xl border border-white/10 relative">
                 
                 {/* Circular Clock Badge Top Right */}
-                <div className="absolute -top-4 right-4 w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-lg border-2 border-white">
+                <div ref={clockBadgeRef} className="absolute -top-4 right-4 w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-lg border-2 border-white">
                   <Clock className="w-5 h-5" />
                 </div>
 
@@ -174,15 +201,15 @@ export const AboutUsSection: React.FC = () => {
                 </h4>
 
                 <div className="grid grid-cols-3 gap-2 text-center text-xs font-semibold">
-                  <div className="bg-white/10 p-2.5 rounded-2xl">
+                  <div className="bg-white/10 p-2.5 rounded-2xl hover:bg-white/20 transition-colors">
                     <div className="opacity-80 text-[10px]">Mon To Sat</div>
                     <div className="font-bold text-white text-[11px] mt-0.5">09:00 AM – 06:00 PM</div>
                   </div>
-                  <div className="bg-white/10 p-2.5 rounded-2xl">
+                  <div className="bg-white/10 p-2.5 rounded-2xl hover:bg-white/20 transition-colors">
                     <div className="opacity-80 text-[10px]">Sunday</div>
                     <div className="font-bold text-white text-[11px] mt-0.5">08:00 AM – 12:00 PM</div>
                   </div>
-                  <div className="bg-white/10 p-2.5 rounded-2xl">
+                  <div className="bg-white/10 p-2.5 rounded-2xl hover:bg-white/20 transition-colors">
                     <div className="opacity-80 text-[10px]">Thursday</div>
                     <div className="font-bold text-amber-300 text-[11px] mt-0.5">Closed</div>
                   </div>
@@ -202,4 +229,5 @@ export const AboutUsSection: React.FC = () => {
     </section>
   );
 };
+
 

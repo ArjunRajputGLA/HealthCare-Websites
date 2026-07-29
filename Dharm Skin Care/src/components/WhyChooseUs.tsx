@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Award, Sparkles, ShieldCheck, Cpu } from 'lucide-react';
 import { WHY_CHOOSE_US } from '../data/clinicData';
+import { animate, stagger } from 'animejs';
 
 export const WhyChooseUs: React.FC = () => {
+  useEffect(() => {
+    animate('.trust-card-anime', {
+      opacity: [0, 1],
+      translateY: [35, 0],
+      duration: 900,
+      delay: stagger(150),
+      ease: 'outExpo'
+    });
+  }, []);
+
+
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Award':
@@ -29,7 +41,7 @@ export const WhyChooseUs: React.FC = () => {
             Advanced Technology Meets Compassionate Care
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-3">
-            Dharm Skin & Eye Centre brings top-tier diagnostic precision and international standards to the patients of Mathura.
+            Dharm Skin &amp; Eye Centre brings top-tier diagnostic precision and international standards to the patients of Mathura.
           </p>
         </div>
 
@@ -37,7 +49,7 @@ export const WhyChooseUs: React.FC = () => {
           {WHY_CHOOSE_US.map((item) => (
             <div
               key={item.id}
-              className="p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-[#4C59D8]/50 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+              className="trust-card-anime p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-[#4C59D8]/50 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1.5"
             >
               <div>
                 <div className="w-13 h-13 rounded-2xl bg-[#EEF1FC] shadow-xs border border-[#DFE5FA] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
@@ -57,4 +69,5 @@ export const WhyChooseUs: React.FC = () => {
     </section>
   );
 };
+
 

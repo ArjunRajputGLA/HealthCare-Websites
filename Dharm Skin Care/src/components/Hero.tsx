@@ -1,12 +1,79 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Calendar, Stethoscope, Star, Users, ArrowRight } from 'lucide-react';
 import { getLenis } from '../hooks/useSmoothScroll';
+import { animate, createTimeline, stagger } from 'animejs';
+import { animateCounter, animateFloatingLoop } from '../utils/animeEffects';
 
 interface HeroProps {
   onOpenAppointment: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
+  const countRef = useRef<HTMLDivElement>(null);
+  const yearsRef = useRef<HTMLDivElement>(null);
+  const badge1Ref = useRef<HTMLDivElement>(null);
+  const badge2Ref = useRef<HTMLDivElement>(null);
+  const circle1Ref = useRef<HTMLDivElement>(null);
+  const circle2Ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // 1. Counter Animations
+    if (countRef.current) {
+      animateCounter(countRef.current, 3500, '', '+', 2200);
+    }
+    if (yearsRef.current) {
+      animateCounter(yearsRef.current, 13, '', '+', 1800);
+    }
+
+    // 2. Floating Ambient Oscillations
+    if (badge1Ref.current) {
+      animateFloatingLoop(badge1Ref.current, 10, 3200);
+    }
+    if (badge2Ref.current) {
+      animateFloatingLoop(badge2Ref.current, 14, 3800);
+    }
+    if (circle1Ref.current) {
+      animate(circle1Ref.current, {
+        scale: [0.95, 1.05],
+        duration: 4000,
+        alternate: true,
+        loop: true,
+        ease: 'inOutSine'
+      });
+    }
+    if (circle2Ref.current) {
+      animate(circle2Ref.current, {
+        scale: [1.05, 0.95],
+        duration: 4500,
+        alternate: true,
+        loop: true,
+        ease: 'inOutSine'
+      });
+    }
+
+    // 3. Staggered Entrance Timeline
+    const timeline = createTimeline({
+      duration: 1000
+    });
+
+    timeline
+      .add('.hero-anime-item', {
+        opacity: [0, 1],
+        translateY: [25, 0],
+        delay: stagger(120)
+      })
+      .add(
+        '.hero-doctor-frame',
+        {
+          opacity: [0, 1],
+          scale: [0.92, 1],
+          duration: 1100
+        },
+        '-=600'
+      );
+  }, []);
+
+
   const handleAboutClick = (e: React.MouseEvent) => {
     e.preventDefault();
     const lenis = getLenis();
@@ -33,23 +100,23 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
           <div className="lg:col-span-7 space-y-6 text-left">
             
             {/* Tag Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 shadow-xs border border-slate-200/80 text-[#4C59D8] text-xs sm:text-sm font-bold">
+            <div className="hero-anime-item inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 shadow-xs border border-slate-200/80 text-[#4C59D8] text-xs sm:text-sm font-bold">
               <Stethoscope className="w-4 h-4 text-[#4C59D8]" />
               <span>Your Skin & Eye Health Our Priority</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.12] tracking-tight">
+            <h1 className="hero-anime-item text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.12] tracking-tight">
               Expert medical care you can rely on
             </h1>
 
             {/* Subheadline */}
-            <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-xl">
+            <p className="hero-anime-item text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-xl">
               Experience healthcare you trust. Our dedicated team provides compassionate, high-quality care with Mathura’s 1st Perimetry machine & imported lens cataract surgery.
             </p>
 
             {/* CTA Pill Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="hero-anime-item flex flex-wrap items-center gap-3 pt-2">
               <button
                 onClick={onOpenAppointment}
                 className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#4C59D8]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
@@ -69,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
             </div>
 
             {/* Google Rating Badge */}
-            <div className="pt-4 flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
+            <div className="hero-anime-item pt-4 flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
               <span>Google Rating <strong className="text-slate-900 font-bold">5.0</strong></span>
               <div className="flex items-center text-[#F59E0B] gap-0.5">
                 <Star className="w-4 h-4 fill-current" />
@@ -88,11 +155,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
             <div className="relative w-full max-w-md lg:max-w-none flex justify-center items-center">
               
               {/* Concentric Circle Backdrops */}
-              <div className="absolute w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] bg-[#E2E7FB] rounded-full -z-10" />
-              <div className="absolute w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] bg-[#D7DEF9] rounded-full -z-10" />
+              <div ref={circle1Ref} className="absolute w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] bg-[#E2E7FB] rounded-full -z-10" />
+              <div ref={circle2Ref} className="absolute w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] bg-[#D7DEF9] rounded-full -z-10" />
 
               {/* Main Doctor Frame */}
-              <div className="relative w-[280px] sm:w-[340px] h-[360px] sm:h-[430px] rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white">
+              <div className="hero-doctor-frame relative w-[280px] sm:w-[340px] h-[360px] sm:h-[430px] rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white transition-transform duration-300 hover:scale-[1.02]">
                 <img
                   src="/images/arpita-gupta.jpg"
                   alt="Dr. Arpita Gupta - Eye Specialist"
@@ -106,11 +173,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
               </div>
 
               {/* Floating Badge 1: Top Left Avatar Stack */}
-              <div className="absolute top-6 -left-2 sm:-left-6 bg-white/95 backdrop-blur-md py-2.5 px-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce-slow">
+              <div ref={badge1Ref} className="absolute top-6 -left-2 sm:-left-6 bg-white/95 backdrop-blur-md py-2.5 px-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
                 <div className="flex -space-x-2">
                   <img src="/images/ChandanSinghKushwah.jpg" alt="Doctor" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
                   <img src="/images/arpita-gupta.jpg" alt="Doctor" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                  <div className="w-8 h-8 rounded-full bg-[#4C59D8] text-white font-bold text-[10px] flex items-center justify-center border-2 border-white">
+                  <div ref={yearsRef} className="w-8 h-8 rounded-full bg-[#4C59D8] text-white font-bold text-[10px] flex items-center justify-center border-2 border-white">
                     13+
                   </div>
                 </div>
@@ -120,12 +187,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
               </div>
 
               {/* Floating Badge 2: Bottom Right Client Count */}
-              <div className="absolute bottom-20 -right-2 sm:-right-6 bg-white/95 backdrop-blur-md py-2.5 px-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
+              <div ref={badge2Ref} className="absolute bottom-16 -right-2 sm:-right-6 bg-white/95 backdrop-blur-md py-2.5 px-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#4C59D8] text-white flex items-center justify-center shrink-0">
                   <Users className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-base font-extrabold text-slate-900 leading-none">3500+</div>
+                  <div ref={countRef} className="text-base font-extrabold text-slate-900 leading-none">3500+</div>
                   <div className="text-[11px] text-slate-500 font-medium mt-0.5">Satisfied Clients</div>
                 </div>
               </div>

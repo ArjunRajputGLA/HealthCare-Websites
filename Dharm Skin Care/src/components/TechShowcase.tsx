@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Cpu, Sparkles, Zap, CheckCircle, Eye, ArrowRight } from 'lucide-react';
+import { animate } from 'animejs';
 
 interface TechShowcaseProps {
   onBookTechService: (serviceName: string) => void;
@@ -7,6 +8,17 @@ interface TechShowcaseProps {
 
 export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService }) => {
   const [activeTech, setActiveTech] = useState<'perimetry' | 'lenses' | 'yag'>('perimetry');
+
+  useEffect(() => {
+    animate('.tech-tab-content', {
+      opacity: [0, 1],
+      translateY: [20, 0],
+      scale: [0.98, 1],
+      duration: 500,
+      ease: 'outExpo'
+    });
+  }, [activeTech]);
+
 
   const techDetails = {
     perimetry: {
@@ -116,18 +128,18 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
         </div>
 
         {/* Tech Detail Active Card */}
-        <div className="bg-slate-800/90 border border-slate-700/80 rounded-3xl p-6 sm:p-10 shadow-2xl">
+        <div className="tech-tab-content bg-slate-800/90 border border-slate-700/80 rounded-3xl p-6 sm:p-10 shadow-2xl">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             {/* Image Side */}
             <div className="lg:col-span-5 relative">
-              <div className="rounded-2xl overflow-hidden border border-slate-700 aspect-[4/3] bg-slate-950 relative">
+              <div className="rounded-2xl overflow-hidden border border-slate-700 aspect-[4/3] bg-slate-950 relative group">
                 <img
                   src={current.image}
                   alt={current.title}
-                  className="w-full h-full object-cover opacity-90"
+                  className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                <div className="absolute top-4 left-4 bg-[#4C59D8] text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                <div className="absolute top-4 left-4 bg-[#4C59D8] text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-md">
                   {current.badge}
                 </div>
               </div>
@@ -144,7 +156,7 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
                 </h3>
               </div>
 
-              <p className="text-slate-300 text-base leading-relaxed">
+              <p className="text-slate-300 text-base leading-relaxed font-normal">
                 {current.description}
               </p>
 
@@ -160,7 +172,7 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
               <div className="pt-4 flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => onBookTechService(current.serviceName)}
-                  className="px-7 py-3.5 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-7 py-3.5 rounded-full bg-[#4C59D8] hover:bg-[#3B47C5] text-white font-bold text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer hover:scale-105"
                 >
                   <span>Book Appointment for {current.serviceName}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -173,4 +185,5 @@ export const TechShowcase: React.FC<TechShowcaseProps> = ({ onBookTechService })
     </section>
   );
 };
+
 
