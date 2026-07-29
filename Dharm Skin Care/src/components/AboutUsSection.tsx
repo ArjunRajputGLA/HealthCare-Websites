@@ -1,7 +1,6 @@
 import React from 'react';
-import { Stethoscope, Clock, ShieldCheck, HeartPulse, Sparkles, ArrowRight } from 'lucide-react';
+import { Stethoscope, Clock, ShieldCheck, HeartPulse, Sparkles, ArrowRight, Video } from 'lucide-react';
 import { getLenis } from '../hooks/useSmoothScroll';
-
 
 export const AboutUsSection: React.FC = () => {
   const handleScrollToContact = (e: React.MouseEvent) => {
@@ -67,7 +66,7 @@ export const AboutUsSection: React.FC = () => {
                     Specialist Doctors
                   </h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    Led by Dr. Arpita Gupta (MS Ophthalmology, Phaco Surgeon) & Dr. Chandan Singh Kushwah (MD Skin & VD, S.N. Medical College).
+                    Led by Dr. Chandan Singh Kushwah (MD Skin &amp; VD, S.N. Medical College) &amp; Dr. Arpita Gupta (MS Ophthalmology, Phaco Surgeon).
                   </p>
                 </div>
               </div>
@@ -103,62 +102,94 @@ export const AboutUsSection: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Overlapping Photos & Floating Opening Hours Card */}
-          <div className="lg:col-span-6 relative pt-6 lg:pt-0">
+          {/* Right Column: Clean Doctor Showcase Grid & Floating Opening Hours Card */}
+          <div className="lg:col-span-6 relative pt-4 lg:pt-0">
             <div className="relative max-w-md mx-auto lg:max-w-none">
               
-              {/* Back Card Image (Doctor Team / Clinic) */}
-              <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-900 aspect-[4/3] sm:aspect-[14/10]">
-                <img
-                  src="/images/ChandanSinghKushwah.jpg"
-                  alt="Dr. Chandan Singh Kushwah - Skin Specialist"
-                  className="w-full h-full object-cover object-top"
-                />
+              {/* Doctor Showcase 2-Column Grid */}
+              <div className="grid grid-cols-12 gap-4 items-stretch">
                 
-                {/* Dark Overlay Badge on Bottom Left of Photo */}
-                <div className="absolute bottom-4 left-4 bg-slate-950/85 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20 text-white font-bold text-xs uppercase tracking-wider">
-                  WHATSAPP &amp; CLINIC CONSULTATION
+                {/* Male Doctor: Dr. Chandan Singh Kushwah (Dermatologist) */}
+                <div className="col-span-7 relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-950 aspect-[3/4] group">
+                  <img
+                    src="/images/ChandanSinghKushwah.jpg"
+                    alt="Dr. Chandan Singh Kushwah - Skin Specialist"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+                  
+                  {/* Doctor Name Badge */}
+                  <div className="absolute bottom-3 left-3 right-3 text-white p-2.5 bg-slate-900/80 backdrop-blur-md rounded-2xl border border-white/20 text-center">
+                    <div className="text-xs sm:text-sm font-extrabold text-white">Dr. Chandan S. Kushwah</div>
+                    <div className="text-[10px] text-slate-300 font-semibold mt-0.5">MD Skin &amp; VD • Dermatologist</div>
+                  </div>
+                </div>
+
+                {/* Female Doctor: Dr. Arpita Gupta (Eye Specialist) & Consultation Tag */}
+                <div className="col-span-5 flex flex-col justify-between space-y-3">
+                  
+                  {/* Doctor Card */}
+                  <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-950 aspect-[3/4] group flex-1">
+                    <img
+                      src="/images/arpita-gupta.jpg"
+                      alt="Dr. Arpita Gupta - Eye Specialist"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+                    
+                    <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white p-2 bg-slate-900/80 backdrop-blur-md rounded-xl text-center border border-white/20">
+                      <div className="text-xs font-bold text-white">Dr. Arpita Gupta</div>
+                      <div className="text-[10px] text-slate-300 font-medium">MS Ophthalmology</div>
+                    </div>
+                  </div>
+
+                  {/* Consultation Support Badge */}
+                  <div className="bg-[#EEF1FC] p-3 rounded-2xl border border-[#DFE5FA] flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-[#4C59D8] text-white flex items-center justify-center shrink-0">
+                      <Video className="w-4 h-4" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-[11px] font-bold text-[#4C59D8] uppercase tracking-wider leading-none">
+                        Video Support
+                      </div>
+                      <div className="text-[10px] text-slate-600 font-semibold mt-0.5">
+                        WhatsApp Consult
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
 
-              {/* Overlapping Primary Image (Doctor with Patient / Diagnostics) */}
-              <div className="absolute top-10 -left-6 sm:-left-10 w-2/3 rounded-2xl overflow-hidden shadow-2xl border-4 border-white hidden sm:block">
-                <img
-                  src="/images/hero.png"
-                  alt="Clinical Care"
-                  className="w-full h-44 object-cover"
-                />
-              </div>
-
-              {/* Overlapping Floating Opening Hours Card - Matching Inspiration UI */}
-              <div className="relative lg:absolute -bottom-8 right-0 sm:right-4 w-full sm:w-80 bg-[#4C59D8] text-white p-6 rounded-2xl shadow-2xl border border-white/10 mt-6 lg:mt-0">
+              {/* Opening Hours Card Floating Below Cleanly */}
+              <div className="mt-5 bg-[#4C59D8] text-white p-5 rounded-3xl shadow-2xl border border-white/10 relative">
                 
                 {/* Circular Clock Badge Top Right */}
-                <div className="absolute -top-5 -right-3 w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-lg border-2 border-white">
-                  <Clock className="w-6 h-6" />
+                <div className="absolute -top-4 right-4 w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-lg border-2 border-white">
+                  <Clock className="w-5 h-5" />
                 </div>
 
-                <h4 className="text-lg font-extrabold mb-4 border-b border-white/20 pb-2">
-                  Opening Hours
+                <h4 className="text-sm font-extrabold mb-3 border-b border-white/20 pb-2">
+                  OPD Opening Hours
                 </h4>
 
-                <div className="space-y-2 text-xs font-semibold">
-                  <div className="flex justify-between items-center py-1 border-b border-white/10">
-                    <span className="opacity-90">Mon To Sat</span>
-                    <span className="font-bold">09:00 AM – 06:00 PM</span>
+                <div className="grid grid-cols-3 gap-2 text-center text-xs font-semibold">
+                  <div className="bg-white/10 p-2.5 rounded-2xl">
+                    <div className="opacity-80 text-[10px]">Mon To Sat</div>
+                    <div className="font-bold text-white text-[11px] mt-0.5">09:00 AM – 06:00 PM</div>
                   </div>
-                  <div className="flex justify-between items-center py-1 border-b border-white/10">
-                    <span className="opacity-90">Sunday</span>
-                    <span className="font-bold">08:00 AM – 12:00 PM</span>
+                  <div className="bg-white/10 p-2.5 rounded-2xl">
+                    <div className="opacity-80 text-[10px]">Sunday</div>
+                    <div className="font-bold text-white text-[11px] mt-0.5">08:00 AM – 12:00 PM</div>
                   </div>
-                  <div className="flex justify-between items-center py-1">
-                    <span className="opacity-90">Thursday</span>
-                    <span className="font-bold text-amber-300">Closed</span>
+                  <div className="bg-white/10 p-2.5 rounded-2xl">
+                    <div className="opacity-80 text-[10px]">Thursday</div>
+                    <div className="font-bold text-amber-300 text-[11px] mt-0.5">Closed</div>
                   </div>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-white/20 text-[11px] text-white/80">
-                  📍 Shankar Vihar, Krishna Nagar, Mathura
+                <div className="mt-3 text-[11px] text-white/80 text-center font-medium">
+                  📍 Shankar Vihar, Krishna Nagar, Mathura (Opp. Tanishq Jewellers)
                 </div>
 
               </div>
@@ -171,3 +202,4 @@ export const AboutUsSection: React.FC = () => {
     </section>
   );
 };
+
