@@ -136,37 +136,37 @@ export const AboutUsSection: React.FC = () => {
               {/* Doctor Showcase 2-Column Grid */}
               <div className="grid grid-cols-12 gap-4 items-stretch">
                 
-                {/* Male Doctor: Dr. Chandan Singh Kushwah (Dermatologist) */}
+                {/* Female Doctor: Dr. Arpita Gupta (Eye Specialist) */}
                 <div className="col-span-7 relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-950 aspect-[3/4] group">
                   <img
-                    src="/images/ChandanSinghKushwah.jpg"
-                    alt="Dr. Chandan Singh Kushwah - Skin Specialist"
+                    src="/images/arpita-gupta.jpg"
+                    alt="Dr. Arpita Gupta - Eye Specialist"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
                   
                   {/* Doctor Name Badge */}
                   <div className="absolute bottom-3 left-3 right-3 text-white p-2.5 bg-slate-900/80 backdrop-blur-md rounded-2xl border border-white/20 text-center">
-                    <div className="text-xs sm:text-sm font-extrabold text-white">Dr. Chandan S. Kushwah</div>
-                    <div className="text-[10px] text-slate-300 font-semibold mt-0.5">MD Skin &amp; VD • Dermatologist</div>
+                    <div className="text-xs sm:text-sm font-extrabold text-white">Dr. Arpita Gupta</div>
+                    <div className="text-[10px] text-slate-300 font-semibold mt-0.5">MS Ophthalmology • Phaco Surgeon</div>
                   </div>
                 </div>
 
-                {/* Female Doctor: Dr. Arpita Gupta (Eye Specialist) & Consultation Tag */}
+                {/* Male Doctor: Dr. Chandan Singh Kushwah (Dermatologist) & Consultation Tag */}
                 <div className="col-span-5 flex flex-col justify-between space-y-3">
                   
                   {/* Doctor Card */}
                   <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-950 aspect-[3/4] group flex-1">
                     <img
-                      src="/images/arpita-gupta.jpg"
-                      alt="Dr. Arpita Gupta - Eye Specialist"
+                      src="/images/ChandanSinghKushwah.jpg"
+                      alt="Dr. Chandan Singh Kushwah - Skin Specialist"
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
                     
                     <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white p-2 bg-slate-900/80 backdrop-blur-md rounded-xl text-center border border-white/20">
-                      <div className="text-xs font-bold text-white">Dr. Arpita Gupta</div>
-                      <div className="text-[10px] text-slate-300 font-medium">MS Ophthalmology</div>
+                      <div className="text-xs font-bold text-white">Dr. Chandan S. Kushwah</div>
+                      <div className="text-[10px] text-slate-300 font-medium">MD Skin &amp; VD</div>
                     </div>
                   </div>
 

@@ -168,14 +168,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
               {/* Main Doctor Frame */}
               <div className="hero-doctor-frame relative w-[280px] sm:w-[340px] h-[360px] sm:h-[430px] rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white transition-transform duration-300 hover:scale-[1.02]">
                 <img
-                  src="/images/arpita-gupta.jpg"
-                  alt="Dr. Arpita Gupta - Eye Specialist"
+                  src="/images/ChandanSinghKushwah.jpg"
+                  alt="Dr. Chandan Singh Kushwah - Dermatologist & Skin Specialist"
                   className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3 text-white p-2 text-center bg-slate-900/40 backdrop-blur-md rounded-xl border border-white/20">
-                  <div className="text-sm font-bold">Dr. Arpita Gupta</div>
-                  <div className="text-[11px] text-slate-200">MS Ophthalmology • Phaco Surgeon</div>
+                  <div className="text-sm font-bold">Dr. Chandan Singh Kushwah</div>
+                  <div className="text-[11px] text-slate-200">MD (Skin &amp; VD) • Skin &amp; Hair Specialist</div>
                 </div>
               </div>
 

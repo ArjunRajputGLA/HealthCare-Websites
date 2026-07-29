@@ -124,34 +124,34 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
             : 'bg-white py-4 border-b border-slate-100'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4 w-full relative">
           {/* Brand Logo */}
           <a
             href="#hero"
             onClick={(e) => handleNavClick(e, '#hero')}
-            className="flex items-center gap-3 group shrink-0"
+            className="flex items-center gap-2.5 sm:gap-3 group shrink-0 z-10 bg-white"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#0F766E] flex items-center justify-center text-white shadow-md shadow-[#0F766E]/20 group-hover:bg-[#0D9488] transition-colors shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0F766E] flex items-center justify-center text-white shadow-md shadow-[#0F766E]/20 group-hover:bg-[#0D9488] transition-colors shrink-0">
               <Eye className="w-5 h-5 text-white" />
             </div>
             <div className="shrink-0">
-              <div className="font-sans text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-none">
+              <div className="font-sans text-base sm:text-lg xl:text-xl font-bold text-slate-900 tracking-tight leading-none">
                 Dharm <span className="text-[#0F766E]">Skin & Eye</span>
               </div>
-              <div className="text-[10px] text-slate-500 font-semibold tracking-wider uppercase mt-1">
+              <div className="text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wider uppercase mt-1">
                 Centre • Mathura
               </div>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+          <nav className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-1 2xl:gap-1.5 flex-1 min-w-0 mx-1 xl:mx-3 overflow-hidden">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="px-3 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold text-slate-700 hover:text-[#0F766E] hover:bg-[#F0FDFA] transition-all whitespace-nowrap"
+                className="px-1.5 xl:px-2.5 2xl:px-3 py-1.5 rounded-full text-[11px] xl:text-xs 2xl:text-sm font-semibold text-slate-700 hover:text-[#0F766E] hover:bg-[#F0FDFA] transition-all whitespace-nowrap shrink-0"
               >
                 {link.name}
               </a>
@@ -159,22 +159,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
           </nav>
 
           {/* Action Button */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-3 shrink-0 z-10 bg-white">
             <button
               onClick={onOpenAppointment}
-              className="flex items-center gap-2 px-6 py-2.5 rounded-full text-xs xl:text-sm font-bold text-white bg-[#0F766E] hover:bg-[#0D9488] shadow-md shadow-[#0F766E]/30 transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
+              className="flex items-center gap-2 px-3.5 xl:px-5 py-2.5 rounded-full text-xs xl:text-sm font-bold text-white bg-[#0F766E] hover:bg-[#0D9488] shadow-md shadow-[#0F766E]/30 transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Appointment</span>
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex sm:hidden items-center gap-2 shrink-0">
+          {/* Mobile/Tablet Menu Toggle Button (< 1280px) */}
+          <div className="flex xl:hidden items-center gap-2 shrink-0">
             <a
               href={`tel:${CLINIC_INFO.phoneRaw}`}
               aria-label="Call Clinic"
-              className="p-2.5 rounded-full text-[#0F766E] bg-[#F0FDFA]"
+              className="p-2.5 rounded-full text-[#0F766E] bg-[#F0FDFA] sm:hidden"
             >
               <Phone className="w-4 h-4" />
             </a>
@@ -188,9 +188,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
           </div>
         </div>
 
-        {/* Mobile Drawer Menu */}
+        {/* Mobile/Tablet Drawer Menu (< 1280px) */}
         {mobileMenuOpen && (
-          <div className="sm:hidden mt-2 pt-3 pb-5 px-4 bg-white border-t border-slate-100 shadow-xl animate-fadeIn">
+          <div className="xl:hidden mt-2 pt-3 pb-5 px-4 bg-white border-t border-slate-100 shadow-xl animate-fadeIn">
             <div className="flex flex-col space-y-1 mb-4">
               {navLinks.map((link) => (
                 <a
