@@ -24,7 +24,6 @@ interface ConditionDetail {
 export const VisionSimulator: React.FC<VisionSimulatorProps> = ({ onBookService }) => {
   const [activeCondition, setActiveCondition] = useState<ConditionType>('glaucoma');
   const [sliderPosition, setSliderPosition] = useState<number>(50); // percentage 0 - 100
-  const [isDragging, setIsDragging] = useState<boolean>(false);
 
   const conditions: Record<ConditionType, ConditionDetail> = {
     glaucoma: {
@@ -76,26 +75,6 @@ export const VisionSimulator: React.FC<VisionSimulatorProps> = ({ onBookService 
   };
 
   const current = conditions[activeCondition];
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isDragging) return;
-    updateSlider(e.clientX, e.currentTarget);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (e.touches.length > 0) {
-      updateSlider(e.touches[0].clientX, e.currentTarget);
-    }
-  };
-
-  const updateSlider = (clientX: number, container: HTMLDivElement) => {
-    const rect = container.getBoundingClientRect();
-    const x = clientX - rect.left;
-    let percentage = (x / rect.width) * 100;
-    if (percentage < 0) percentage = 0;
-    if (percentage > 100) percentage = 100;
-    setSliderPosition(percentage);
-  };
 
   return (
     <section id="vision-simulator" className="py-20 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
@@ -167,67 +146,66 @@ export const VisionSimulator: React.FC<VisionSimulatorProps> = ({ onBookService 
               </div>
 
               {/* Slider Viewport */}
-              <div
-                className="relative h-[340px] sm:h-[420px] rounded-2xl overflow-hidden cursor-ew-resize select-none border-2 border-slate-700/80 shadow-2xl"
-                onMouseDown={() => setIsDragging(true)}
-                onMouseUp={() => setIsDragging(false)}
-                onMouseLeave={() => setIsDragging(false)}
-                onMouseMove={handleMouseMove}
-                onTouchMove={handleTouchMove}
-              >
+              <div className="relative h-[340px] sm:h-[420px] rounded-2xl overflow-hidden select-none border-2 border-slate-700/80 shadow-2xl bg-slate-950">
                 {/* 1. Base Layer: AFTER Treatment (Clear HD Scene) */}
-                <div className="absolute inset-0 bg-slate-950">
+                <div className="absolute inset-0">
                   <img
                     src="/images/hero.png"
                     alt="Clear Vision Scene"
                     className="w-full h-full object-cover object-center"
                   />
                   {/* Clear View Badge */}
-                  <div className="absolute top-4 right-4 bg-emerald-600/90 text-white px-3 py-1 rounded-full text-xs font-extrabold shadow-lg backdrop-blur-md">
+                  <div className="absolute top-4 right-4 bg-emerald-600/90 text-white px-3 py-1 rounded-full text-xs font-extrabold shadow-lg backdrop-blur-md pointer-events-none">
                     100% Restored Sight
                   </div>
                 </div>
 
                 {/* 2. Overlay Layer: BEFORE Treatment (Filtered / Tunnel View) clipped by slider position */}
                 <div
-                  className="absolute inset-y-0 left-0 bg-slate-950 overflow-hidden"
-                  style={{ width: `${sliderPosition}%` }}
+                  className="absolute inset-0 overflow-hidden pointer-events-none"
+                  style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
                 >
-                  <div
-                    className="absolute top-0 bottom-0 left-0 w-full"
-                    style={{ width: '100%', height: '100%' }}
-                  >
-                    <img
-                      src="/images/hero.png"
-                      alt="Condition Vision Simulation"
-                      className="w-full h-full object-cover object-center"
-                      style={current.filterStyleCondition}
+                  <img
+                    src="/images/hero.png"
+                    alt="Condition Vision Simulation"
+                    className="w-full h-full object-cover object-center"
+                    style={current.filterStyleCondition}
+                  />
+
+                  {/* Additional Overlay Gradient for Glaucoma Tunnel Vision */}
+                  {current.overlayGradient && (
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{ background: current.overlayGradient }}
                     />
+                  )}
 
-                    {/* Additional Overlay Gradient for Glaucoma Tunnel Vision */}
-                    {current.overlayGradient && (
-                      <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{ background: current.overlayGradient }}
-                      />
-                    )}
-
-                    {/* Condition Label Badge */}
-                    <div className="absolute top-4 left-4 bg-red-600/90 text-white px-3 py-1 rounded-full text-xs font-extrabold shadow-lg backdrop-blur-md">
-                      Simulated: {current.title}
-                    </div>
+                  {/* Condition Label Badge */}
+                  <div className="absolute top-4 left-4 bg-red-600/90 text-white px-3 py-1 rounded-full text-xs font-extrabold shadow-lg backdrop-blur-md">
+                    Simulated: {current.title}
                   </div>
                 </div>
 
                 {/* 3. Interactive Split Handle Line */}
                 <div
-                  className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_12px_rgba(255,255,255,0.9)] cursor-ew-resize flex items-center justify-center pointer-events-none"
+                  className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_12px_rgba(255,255,255,0.9)] flex items-center justify-center pointer-events-none z-10"
                   style={{ left: `${sliderPosition}%` }}
                 >
                   <div className="w-10 h-10 rounded-full bg-[#0F766E] text-white border-2 border-white shadow-2xl flex items-center justify-center text-xs font-bold">
                     ↔
                   </div>
                 </div>
+
+                {/* 4. Range Input for smooth slider dragging */}
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={sliderPosition}
+                  onChange={(e) => setSliderPosition(Number(e.target.value))}
+                  aria-label="Vision condition comparison slider"
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
+                />
               </div>
 
               <div className="text-center text-xs text-slate-400 font-medium">

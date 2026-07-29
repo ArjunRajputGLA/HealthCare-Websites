@@ -160,24 +160,22 @@ export const BeforeAfterShowcase: React.FC<BeforeAfterShowcaseProps> = ({ onBook
 
                   {/* Before Image Layer overlay */}
                   <div
-                    className="absolute inset-y-0 left-0 overflow-hidden bg-slate-950"
-                    style={{ width: `${sliderPos}%` }}
+                    className="absolute inset-0 overflow-hidden pointer-events-none"
+                    style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
                   >
-                    <div className="relative w-[500px] sm:w-[600px] h-full">
-                      <img
-                        src={currentItem.imageBefore}
-                        alt="Before Treatment"
-                        className="w-full h-full object-cover object-top filter contrast-125 sepia-50 blur-[2px]"
-                      />
-                      <div className="absolute top-4 left-4 bg-slate-900/90 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                        Before Care
-                      </div>
+                    <img
+                      src={currentItem.imageBefore}
+                      alt="Before Treatment"
+                      className="w-full h-full object-cover object-top filter contrast-125 sepia-50 blur-[2px]"
+                    />
+                    <div className="absolute top-4 left-4 bg-slate-900/90 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                      Before Care
                     </div>
                   </div>
 
                   {/* Slider Control Line */}
                   <div
-                    className="absolute top-0 bottom-0 w-1 bg-white shadow-xl flex items-center justify-center pointer-events-none"
+                    className="absolute top-0 bottom-0 w-1 bg-white shadow-xl flex items-center justify-center pointer-events-none z-10"
                     style={{ left: `${sliderPos}%` }}
                   >
                     <div className="w-8 h-8 rounded-full bg-[#0F766E] text-white border-2 border-white shadow-lg flex items-center justify-center text-xs font-bold">
