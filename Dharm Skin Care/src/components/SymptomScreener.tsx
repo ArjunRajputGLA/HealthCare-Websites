@@ -182,15 +182,25 @@ export const SymptomScreener: React.FC<SymptomScreenerProps> = ({ onBookRecommen
         </div>
 
         {/* Screener Container */}
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-10">
+        <div className="max-w-4xl mx-auto bg-gradient-to-b from-white via-slate-50/30 to-white rounded-3xl sm:rounded-[36px] border border-slate-200/90 shadow-2xl overflow-hidden p-6 sm:p-10 relative">
           
-          {/* Step 1: Category Switcher */}
-          <div className="mb-8">
-            <label className="block text-xs font-extrabold text-slate-500 uppercase tracking-wider mb-3 text-center sm:text-left">
-              Step 1: Choose Specialty Category
-            </label>
+          {/* Subtle Glow Backdrop Accent */}
+          <div className={`absolute top-0 right-0 w-80 h-80 rounded-full blur-3xl pointer-events-none transition-colors duration-500 ${
+            category === 'eye' ? 'bg-blue-500/10' : 'bg-pink-500/10'
+          }`} />
 
-            <div className="grid grid-cols-2 gap-4">
+          {/* Step 1: Category Switcher */}
+          <div className="mb-8 relative z-10">
+            <div className="flex items-center justify-between mb-3">
+              <label className="text-xs font-extrabold text-slate-500 uppercase tracking-wider">
+                Step 1: Choose Specialty Category
+              </label>
+              <span className="text-xs font-bold text-slate-400">
+                {category === 'eye' ? 'Eye Ophthalmology' : 'Skin & Hair Dermatology'}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 p-1.5 bg-slate-100/90 rounded-2xl border border-slate-200/80">
               <button
                 type="button"
                 onClick={() => {
@@ -198,13 +208,13 @@ export const SymptomScreener: React.FC<SymptomScreenerProps> = ({ onBookRecommen
                   setSelectedSymptoms([]);
                   setIsSubmitted(false);
                 }}
-                className={`py-4 px-5 rounded-2xl font-extrabold text-sm sm:text-base border-2 transition-all flex items-center justify-center gap-3 cursor-pointer ${
+                className={`py-3.5 px-4 sm:px-6 rounded-xl font-extrabold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer ${
                   category === 'eye'
-                    ? 'border-[#0F766E] bg-[#F0FDFA] text-[#0F766E] shadow-md'
-                    : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                    ? 'bg-gradient-to-r from-blue-600 via-sky-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25 scale-[1.02]'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
                 }`}
               >
-                <span className="text-xl">👁️</span>
+                <span className="text-lg">👁️</span>
                 <span>Eye &amp; Vision Care</span>
               </button>
 
@@ -215,13 +225,13 @@ export const SymptomScreener: React.FC<SymptomScreenerProps> = ({ onBookRecommen
                   setSelectedSymptoms([]);
                   setIsSubmitted(false);
                 }}
-                className={`py-4 px-5 rounded-2xl font-extrabold text-sm sm:text-base border-2 transition-all flex items-center justify-center gap-3 cursor-pointer ${
+                className={`py-3.5 px-4 sm:px-6 rounded-xl font-extrabold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer ${
                   category === 'skin'
-                    ? 'border-[#0F766E] bg-[#F0FDFA] text-[#0F766E] shadow-md'
-                    : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                    ? 'bg-gradient-to-r from-pink-600 via-rose-600 to-rose-700 text-white shadow-lg shadow-pink-500/25 scale-[1.02]'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
                 }`}
               >
-                <span className="text-xl">🩺</span>
+                <span className="text-lg">🩺</span>
                 <span>Skin, Hair &amp; Aesthetic Care</span>
               </button>
             </div>
@@ -229,32 +239,49 @@ export const SymptomScreener: React.FC<SymptomScreenerProps> = ({ onBookRecommen
 
           {/* Step 2: Symptom Selection Cards */}
           {!isSubmitted ? (
-            <div className="space-y-6">
+            <div className="space-y-6 relative z-10">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-extrabold text-slate-500 uppercase tracking-wider">
                   Step 2: Select any symptoms you are experiencing
                 </label>
                 {selectedSymptoms.length > 0 && (
-                  <span className="text-xs font-bold text-[#0F766E]">
-                    {selectedSymptoms.length} Selected
+                  <span className={`text-xs font-extrabold px-3 py-1 rounded-full border shadow-xs animate-in fade-in ${
+                    category === 'eye'
+                      ? 'bg-blue-50 text-blue-700 border-blue-200'
+                      : 'bg-pink-50 text-pink-700 border-pink-200'
+                  }`}>
+                    {selectedSymptoms.length} Symptom{selectedSymptoms.length > 1 ? 's' : ''} Selected
                   </span>
                 )}
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {activeSymptomList.map((item) => {
                   const isSelected = selectedSymptoms.includes(item.id);
                   return (
                     <div
                       key={item.id}
                       onClick={() => toggleSymptom(item.id)}
-                      className={`p-4 rounded-2xl border-2 transition-all cursor-pointer flex items-start gap-3 select-none ${
+                      className={`p-4 rounded-2xl border-2 transition-all duration-200 cursor-pointer flex items-start gap-3.5 select-none ${
                         isSelected
-                          ? 'border-[#0F766E] bg-[#F0FDFA]/50 shadow-sm'
-                          : 'border-slate-200 bg-white hover:border-slate-300'
+                          ? category === 'eye'
+                            ? 'border-blue-600 bg-blue-50/70 shadow-md shadow-blue-500/10 scale-[1.01]'
+                            : 'border-pink-600 bg-pink-50/70 shadow-md shadow-pink-500/10 scale-[1.01]'
+                          : 'border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/50 hover:shadow-xs'
                       }`}
                     >
-                      <div className="text-2xl shrink-0 mt-0.5">{item.icon}</div>
+                      {/* Icon Box */}
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0 mt-0.5 border ${
+                        isSelected
+                          ? category === 'eye'
+                            ? 'bg-blue-100 border-blue-200 text-blue-700'
+                            : 'bg-pink-100 border-pink-200 text-pink-700'
+                          : 'bg-slate-100/80 border-slate-200 text-slate-700'
+                      }`}>
+                        {item.icon}
+                      </div>
+
+                      {/* Content */}
                       <div className="flex-1 min-w-0">
                         <div className="text-sm font-bold text-slate-900 leading-snug">
                           {item.label}
@@ -263,25 +290,29 @@ export const SymptomScreener: React.FC<SymptomScreenerProps> = ({ onBookRecommen
                           {item.description}
                         </div>
                       </div>
-                      <div className={`w-5 h-5 rounded-md border flex items-center justify-center shrink-0 mt-0.5 ${
+
+                      {/* Checkbox */}
+                      <div className={`w-5 h-5 rounded-lg border-2 flex items-center justify-center shrink-0 mt-0.5 transition-all ${
                         isSelected
-                          ? 'bg-[#0F766E] border-[#0F766E] text-white'
+                          ? category === 'eye'
+                            ? 'bg-blue-600 border-blue-600 text-white shadow-xs'
+                            : 'bg-pink-600 border-pink-600 text-white shadow-xs'
                           : 'border-slate-300 bg-white'
                       }`}>
-                        {isSelected && <Check className="w-3.5 h-3.5" />}
+                        {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                       </div>
                     </div>
                   );
                 })}
               </div>
 
-              {/* Screener Submit Button */}
-              <div className="pt-4 flex items-center justify-between gap-4">
+              {/* Screener Submit & Reset Footer */}
+              <div className="pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <button
                   type="button"
                   onClick={handleReset}
                   disabled={selectedSymptoms.length === 0}
-                  className="px-4 py-2.5 rounded-full text-xs font-bold text-slate-500 hover:text-slate-800 disabled:opacity-40 flex items-center gap-1.5 cursor-pointer"
+                  className="px-4 py-2.5 rounded-full text-xs font-bold text-slate-500 hover:text-slate-800 disabled:opacity-30 flex items-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>Reset Selection</span>
@@ -291,7 +322,13 @@ export const SymptomScreener: React.FC<SymptomScreenerProps> = ({ onBookRecommen
                   type="button"
                   onClick={() => setIsSubmitted(true)}
                   disabled={selectedSymptoms.length === 0}
-                  className="px-8 py-3.5 rounded-full bg-[#0F766E] hover:bg-[#0D9488] disabled:bg-slate-300 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-[#0F766E]/25 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
+                  className={`w-full sm:w-auto px-8 py-3.5 rounded-full font-extrabold text-sm sm:text-base text-white transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer ${
+                    selectedSymptoms.length > 0
+                      ? category === 'eye'
+                        ? 'bg-gradient-to-r from-blue-600 via-sky-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-500/30 hover:scale-105 active:scale-95'
+                        : 'bg-gradient-to-r from-pink-600 via-rose-600 to-rose-700 hover:from-pink-500 hover:to-rose-600 shadow-lg shadow-pink-500/30 hover:scale-105 active:scale-95'
+                      : 'bg-slate-200 text-slate-400 border border-slate-200 cursor-not-allowed shadow-none'
+                  }`}
                 >
                   <span>Get Clinical Recommendation</span>
                   <ArrowRight className="w-4 h-4" />
