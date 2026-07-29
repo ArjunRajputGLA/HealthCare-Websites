@@ -70,6 +70,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAppointment }) => {
     { name: 'Skin Care', href: '#skin-care' },
     { name: 'Meet Doctors', href: '#doctor' },
     { name: 'Technology', href: '#technology' },
+    { name: '360° Tour', href: '#virtual-tour' },
     { name: 'Contact Us', href: '#location' },
   ];
 

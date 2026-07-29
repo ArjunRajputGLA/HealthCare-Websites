@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Calendar, Stethoscope, Star, Users, ArrowRight } from 'lucide-react';
+import { Calendar, Stethoscope, Star, Users, ArrowRight, Compass } from 'lucide-react';
 import { getLenis } from '../hooks/useSmoothScroll';
 import { animate, createTimeline, stagger } from 'animejs';
 import { animateCounter, animateFloatingLoop } from '../utils/animeEffects';
@@ -126,9 +126,23 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
               </button>
 
               <a
+                href="#virtual-tour"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const lenis = getLenis();
+                  if (lenis) lenis.scrollTo('#virtual-tour', { offset: -110 });
+                  else document.getElementById('virtual-tour')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold text-sm sm:text-base shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <Compass className="w-4 h-4 text-[#F59E0B]" />
+                <span>360° Virtual Tour</span>
+              </a>
+
+              <a
                 href="#about-us"
                 onClick={handleAboutClick}
-                className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#5865E0] hover:bg-[#4C59D8] text-white font-bold text-sm sm:text-base shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#5865E0] hover:bg-[#4C59D8] text-white font-bold text-sm sm:text-base shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <span>About Us</span>
                 <ArrowRight className="w-4 h-4" />

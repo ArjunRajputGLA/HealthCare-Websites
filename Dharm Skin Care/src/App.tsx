@@ -8,6 +8,7 @@ import { SkinCareServices } from './components/SkinCareServices';
 import { DoctorProfile } from './components/DoctorProfile';
 import { TechShowcase } from './components/TechShowcase';
 import { Testimonials } from './components/Testimonials';
+import { VirtualTour360 } from './components/VirtualTour360';
 import { ClinicInfoAndMap } from './components/ClinicInfoAndMap';
 import { AppointmentSection } from './components/AppointmentSection';
 import { Footer } from './components/Footer';
@@ -75,6 +76,9 @@ export function App() {
       {/* Patient Testimonials */}
       <Testimonials />
 
+      {/* Interactive 360° Virtual Hospital & Street View Tour */}
+      <VirtualTour360 />
+
       {/* Hours Table & Location Map */}
       <ClinicInfoAndMap />
 
@@ -93,6 +97,7 @@ export function App() {
     </div>
   );
 }
+
 
 export default App;
 
