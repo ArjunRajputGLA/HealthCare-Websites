@@ -28,12 +28,12 @@ export const SkinCareServices: React.FC<SkinCareServicesProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F0FDFA] text-[#0F766E] text-xs font-bold uppercase tracking-wider mb-3">
-            <Sparkles className="w-4 h-4 text-[#F59E0B]" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-50 text-pink-700 border border-pink-200/80 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+            <Sparkles className="w-4 h-4 text-pink-500 fill-pink-200" />
             <span>Dermatology &amp; Aesthetic Wing</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Skin, Hair &amp; Aesthetic Care
+            Skin, Hair &amp; <span className="bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">Aesthetic Care</span>
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-3 font-medium">
             Operating as <strong className="text-slate-800">Dharm Skin, Hair &amp; Aesthetic Clinic</strong>, our specialized dermatology unit is directed by senior specialist {DOCTOR_CHANDAN.name} ({DOCTOR_CHANDAN.qualifications}).

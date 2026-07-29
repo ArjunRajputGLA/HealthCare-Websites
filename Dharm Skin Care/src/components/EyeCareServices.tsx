@@ -66,12 +66,12 @@ export const EyeCareServices: React.FC<EyeCareServicesProps> = ({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F0FDFA] text-[#0F766E] text-xs font-bold uppercase tracking-wider mb-3">
-              <Eye className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200/80 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+              <Eye className="w-4 h-4 text-blue-600" />
               <span>Primary Medical Specialty</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-              Advanced Ophthalmology &amp; Eye Care
+              Advanced <span className="bg-gradient-to-r from-blue-600 via-sky-600 to-[#0F766E] bg-clip-text text-transparent">Ophthalmology &amp; Eye Care</span>
             </h2>
             <p className="text-slate-600 text-base sm:text-lg max-w-2xl mt-3 font-medium">
               From state-of-the-art perimetry diagnostic testing to imported lens cataract surgery, we offer complete ocular healthcare in Mathura.

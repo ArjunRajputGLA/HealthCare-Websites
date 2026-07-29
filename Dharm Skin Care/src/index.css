@@ -27,6 +27,10 @@
     --color-primary: #0F766E;
     --color-primary-dark: #0D9488;
     --color-primary-light: #F0FDFA;
+    --color-pink: #EC4899;
+    --color-pink-light: #FDF2F8;
+    --color-blue: #2563EB;
+    --color-blue-light: #EFF6FF;
     --color-accent: #F59E0B;
     --color-surface: #F8FAFC;
   }

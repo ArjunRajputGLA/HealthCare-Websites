@@ -43,10 +43,10 @@ export const QuickActionRow: React.FC<QuickActionRowProps> = ({ onOpenAppointmen
           </div>
         </button>
 
-        {/* Card 2: Doctors & Specialists (Amber / Orange) */}
+        {/* Card 2: Skin & Hair Specialists (Rose Pink & Magenta) */}
         <button
-          onClick={() => scrollToSection('#doctor')}
-          className="group relative bg-gradient-to-br from-[#D97706] to-[#B45309] text-white p-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 text-left overflow-hidden border border-amber-400/20 cursor-pointer flex flex-col justify-between min-h-[120px]"
+          onClick={() => scrollToSection('#skin-care')}
+          className="group relative bg-gradient-to-br from-[#EC4899] via-[#DB2777] to-[#BE185D] text-white p-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 text-left overflow-hidden border border-pink-400/20 cursor-pointer flex flex-col justify-between min-h-[120px]"
         >
           <div className="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
             <Stethoscope className="w-24 h-24 text-white" />
@@ -60,15 +60,15 @@ export const QuickActionRow: React.FC<QuickActionRowProps> = ({ onOpenAppointmen
             </span>
           </div>
           <div className="mt-4">
-            <h3 className="text-lg font-bold leading-tight">Our Doctors</h3>
-            <p className="text-xs text-amber-100 font-medium mt-0.5">Dr. Chandan &amp; Dr. Arpita</p>
+            <h3 className="text-lg font-bold leading-tight">Skin &amp; Hair Care</h3>
+            <p className="text-xs text-pink-100 font-medium mt-0.5">Dermatology &amp; Aesthetics</p>
           </div>
         </button>
 
-        {/* Card 3: 1st Perimetry Suite (Ocean Blue) */}
+        {/* Card 3: 1st Perimetry & Eye Suite (Sapphire Royal Blue) */}
         <button
           onClick={() => scrollToSection('#technology')}
-          className="group relative bg-gradient-to-br from-[#0284C7] to-[#0369A1] text-white p-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 text-left overflow-hidden border border-sky-400/20 cursor-pointer flex flex-col justify-between min-h-[120px]"
+          className="group relative bg-gradient-to-br from-[#2563EB] via-[#1D4ED8] to-[#1E40AF] text-white p-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 text-left overflow-hidden border border-blue-400/20 cursor-pointer flex flex-col justify-between min-h-[120px]"
         >
           <div className="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
             <Eye className="w-24 h-24 text-white" />
@@ -83,7 +83,7 @@ export const QuickActionRow: React.FC<QuickActionRowProps> = ({ onOpenAppointmen
           </div>
           <div className="mt-4">
             <h3 className="text-lg font-bold leading-tight">1st Perimetry Suite</h3>
-            <p className="text-xs text-sky-100 font-medium mt-0.5">Computerized Visual Field</p>
+            <p className="text-xs text-blue-100 font-medium mt-0.5">Computerized Eye Testing</p>
           </div>
         </button>
 

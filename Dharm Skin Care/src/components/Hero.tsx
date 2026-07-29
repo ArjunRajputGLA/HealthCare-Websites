@@ -104,24 +104,32 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAppointment }) => {
       {/* Main Hero Container Card - Soft Mint Teal */}
       <div className="relative rounded-3xl lg:rounded-[36px] bg-[#F0FDFA] border border-[#CCFBF1] p-6 sm:p-10 lg:p-14 overflow-hidden shadow-xs">
         
-        {/* Background Subtle Gradient Blobs */}
-        <div className="absolute -top-20 -left-20 w-80 h-80 bg-white/40 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#0F766E]/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Background Subtle Gradient Blobs - Blue & Pink */}
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -right-20 w-[420px] h-[420px] bg-pink-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-teal-400/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">
           
           {/* Left Column: Headline & CTAs */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Tag Badge */}
-            <div className="hero-anime-item inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 shadow-xs border border-slate-200/80 text-[#0F766E] text-xs sm:text-sm font-bold">
-              <Stethoscope className="w-4 h-4 text-[#0F766E]" />
-              <span>Your Skin &amp; Eye Health Our Priority</span>
+            {/* Tag Badge with Pink & Blue Gradients */}
+            <div className="hero-anime-item inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-xs border border-slate-200/80 text-slate-800 text-xs sm:text-sm font-bold">
+              <span className="flex items-center gap-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
+                <span className="text-blue-700">Eye Care</span>
+              </span>
+              <span className="text-slate-300">•</span>
+              <span className="flex items-center gap-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-pink-500" />
+                <span className="text-pink-600">Skin Aesthetics</span>
+              </span>
             </div>
 
             {/* Main Headline */}
             <h1 className="hero-anime-item text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.12] tracking-tight">
-              Expert medical care you can rely on
+              <span className="bg-gradient-to-r from-blue-600 via-[#0F766E] to-pink-600 bg-clip-text text-transparent">Expert Medical Care</span> You Can Rely On
             </h1>
 
             {/* Subheadline */}

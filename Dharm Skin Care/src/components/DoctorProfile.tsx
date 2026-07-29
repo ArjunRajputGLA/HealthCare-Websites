@@ -22,12 +22,14 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookDoctor }) =>
     <section id="doctor" className="py-20 bg-white border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F0FDFA] text-[#0F766E] text-xs font-bold uppercase tracking-wider mb-3">
-            <UserCheck className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-50 via-slate-50 to-pink-50 border border-slate-200/80 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-blue-600" />
+            <UserCheck className="w-4 h-4 text-[#0F766E]" />
+            <span className="w-2 h-2 rounded-full bg-pink-600" />
             <span>Experienced Medical Team</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Meet Our Specialist Doctors
+            Meet Our <span className="bg-gradient-to-r from-blue-600 via-[#0F766E] to-pink-600 bg-clip-text text-transparent">Specialist Doctors</span>
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-3 font-medium">
             Dedicated multi-specialty care in Dermatology and Ophthalmology, bringing advanced clinical expertise to Mathura.
